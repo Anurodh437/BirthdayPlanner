@@ -1,0 +1,201 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@500&display=swap");
+
+:root {
+  --primary: #ff4c29;
+  --secondary: #0e0e0e;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  color: var(--secondary);
+  box-sizing: border-box;
+  line-height: 1.5;
+  transition: all 0.3s ease-in-out;
+  font-family: "Josefin Sans", Arial;
+  font-family: "IBM Plex Sans Arabic", sans-serif;
+}
+
+body {
+  background: #abf7ff;
+}
+
+header {
+  display: flex;
+  justify-content: space-around;
+  padding: 2rem 0;
+  align-items: center;
+}
+
+header .links ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header .links li {
+  margin: 0 2rem;
+  list-style-type: none;
+  transition: none;
+  cursor: pointer;
+}
+
+header .links li:hover {
+  color: #ff4c29;
+}
+
+header .links .profile {
+  width: 30px;
+  background: #fdf5ca;
+  border-radius: 50%;
+}
+
+header .logo {
+  font-family: "Josefin Sans", Arial;
+}
+
+.banner {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 83vh;
+}
+
+.banner .banner_img {
+  position: absolute;
+  width: 800px;
+  z-index: -1;
+}
+
+.banner .left {
+  margin-right: 30rem;
+  margin-left: 5rem;
+}
+
+.banner .left h1 {
+  font-size: 3em;
+  line-height: 1.2;
+}
+
+.banner .left p {
+  color: #999;
+  margin: 1.7rem 0;
+  width: 300px;
+}
+
+.banner .left .buy {
+  font-weight: 700;
+  font-size: 2em;
+  display: flex;
+  margin-top: 3rem;
+  margin-right: -2rem !important;
+  align-items: center;
+}
+
+.banner .left .buy::before {
+  content: "";
+  position: absolute;
+  margin-left: -1.5rem;
+  width: 100px;
+  height: 100px;
+  background: var(--primary);
+  z-index: -1;
+  transform: translateY(5%);
+  border-radius: 50%;
+}
+
+.banner .right {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.banner .right .quality {
+  display: flex;
+  align-items: center;
+  margin: 2rem 0;
+}
+
+.banner .right .quality .data p {
+  font-weight: 100;
+}
+
+.banner .right .icon {
+  padding: 1rem;
+  border-radius: 5px;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 15px;
+  background: var(--primary);
+}
+
+.banner .right .icon .fas {
+  color: #fff;
+  font-size: 25px;
+}
+
+@media (max-width: 1100px) {
+  header {
+    flex-direction: column;
+  }
+
+  header .logo {
+    margin-bottom: 1rem;
+    color: var(--primary);
+  }
+
+  .banner {
+    flex-direction: column;
+    position: relative;
+    margin-top: 5rem;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .banner .left {
+    margin: auto;
+    margin: 2rem 0;
+  }
+
+  .banner .left h1 {
+    text-align: center;
+  }
+
+  .banner .left p {
+    text-align: center;
+    width: auto;
+    margin: 2rem auto;
+  }
+
+  .banner .left .buy {
+    text-align: center !important;
+    color: var(--primary);
+  }
+
+  .banner .left .buy::before {
+    content: "";
+    display: none;
+  }
+
+  .banner .banner_img {
+    display: none;
+  }
+}
+
+.data h1 {
+  text-align: left;
+}
+.data p {
+  text-align: left;
+}
+@media (max-width: 800px) {
+  header .links li {
+    margin: 0 1rem;
+  }
+}
