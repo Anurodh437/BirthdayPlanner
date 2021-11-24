@@ -1,16 +1,36 @@
 import React from "react";
-import "./login.scss";
-import bgimage from "../../assets/rightbg.jpg";
-import logoimage from "../../assets/img1.png";
+import "./signup.scss";
+import bgimage from "../../../assets/rightbg.jpg";
+import logoimage from "../../../assets/img1.png";
+import { auth  } from "../../../firebase";
+import { useCallback, useState } from "react";
 
 const Login = () => {
+
+  const [error, setError] = useState("");
+  const handleSignUp = useCallback(async (event) => {
+    event.preventDefault();
+    setError("");
+    const { email, password, name } = event.target.elements;
+    console.log(name.value);
+    try {
+      await auth.createUserWithEmailAndPassword(email.value, password.value);
+      // console.log("User Created ");
+    } catch (error) {
+      // console.log(error.code);
+      if (error.code === "auth/email-already-in-use")
+        setError("The email address is already in use by another account.");
+      else setError(error.message);
+    }
+  }, []);
+
   return (
     <div className="main">
       {/* left column */}
       <div className="left_col">
         <div className="login_form">
           <div className="heading">
-            <h1>Login</h1>
+            <h1>SignUp</h1>
             <img width="80" src={logoimage} alt="" />
           </div>
           <div className="about">
@@ -18,9 +38,9 @@ const Login = () => {
             assumenda iure necessitatibus autem rem dolor asperiores a illo
             reiciendis.
           </div>
-          <form className="input_form">
+          <form onSubmit={handleSignUp} className="input_form">
             <label htmlFor="email">Email</label>
-            <input type="text" placeholder="enter email" />
+            <input type="text" placeholder="enter email" onError={error} />
 
             <div className="forgot">
               <label htmlFor="password">Password</label>
@@ -28,7 +48,7 @@ const Login = () => {
             </div>
             <input type="password" placeholder="Enter Password" />
             <div>
-              <button className="btn">Login</button>
+              <button className="btn">SignUp</button>
             </div>
           </form>
           <h3 className="dividing_line">Or</h3>
@@ -97,7 +117,7 @@ const Login = () => {
             </div>
           </div>
           <div className="create">
-            <a href=" ">Don’t have an account? Sign Up here</a>
+            <a href=" ">Already Have an Account? Sign In here</a>
           </div>
         </div>
       </div>
