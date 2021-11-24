@@ -1,16 +1,45 @@
 import React from "react";
-import "./signup.scss";
-import bgimage from "../../assets/rightbg.jpg";
-import logoimage from "../../assets/img1.png";
+import { useCallback,useState } from "react";
+import "./login.scss";
+import bgimage from "../../../assets/rightbg.jpg";
+import logoimage from "../../../assets/img1.png";
+import { auth } from "../../../firebase";
 
 const Login = () => {
+
+  const [error, setError] = useState("");
+
+  const handleLogin = useCallback(async (event) => {
+    event.preventDefault();
+    setError("");
+    const { email, password } = event.target.elements;
+    // console.log("User ", email.value, password.value);
+    try {
+      await auth.signInWithEmailAndPassword(email.value, password.value);
+      // console.log("logged In");
+    } catch (error) {
+      // console.log(error.code);
+      if (error.code === "auth/wrong-password")
+        setError(
+          "The password is invalid or the user does not have a password.❌"
+        );
+      else if (error.code === "auth/user-not-found")
+        setError(
+          "There is no user record corresponding to this email address. The user may have been deleted."
+        );
+      else setError(error.message);
+    }
+    // Firebase: A network AuthError (such as timeout, interrupted connection or unreachable host) has occurred. (auth/network-request-failed).
+  }, []);
+
+
   return (
     <div className="main">
       {/* left column */}
       <div className="left_col">
         <div className="login_form">
           <div className="heading">
-            <h1>SignUp</h1>
+            <h1>Login</h1>
             <img width="80" src={logoimage} alt="" />
           </div>
           <div className="about">
@@ -18,9 +47,9 @@ const Login = () => {
             assumenda iure necessitatibus autem rem dolor asperiores a illo
             reiciendis.
           </div>
-          <form className="input_form">
+          <form onSubmit={handleLogin} className="input_form">
             <label htmlFor="email">Email</label>
-            <input type="text" placeholder="enter email" />
+            <input type="text" placeholder="enter email" onError={error}/>
 
             <div className="forgot">
               <label htmlFor="password">Password</label>
@@ -28,7 +57,7 @@ const Login = () => {
             </div>
             <input type="password" placeholder="Enter Password" />
             <div>
-              <button className="btn">SignUp</button>
+              <button type="submit" className="btn">Login</button>
             </div>
           </form>
           <h3 className="dividing_line">Or</h3>
@@ -97,7 +126,7 @@ const Login = () => {
             </div>
           </div>
           <div className="create">
-            <a href=" ">Already Have an Account? Sign In here</a>
+            <a href=" ">Don’t have an account? Sign Up here</a>
           </div>
         </div>
       </div>
