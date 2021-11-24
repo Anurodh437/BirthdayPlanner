@@ -3,6 +3,10 @@ import "./Dashboard.css";
 import mainImage from "../../assets/image_processing20211110-13169-mniu50.png";
 
 const Dashboard = () => {
+  const goToLogin = () => {
+    window.location.href = "/login";
+  };
+
   return (
     <div>
       <header>
@@ -13,6 +17,7 @@ const Dashboard = () => {
             <li>Testimonials</li>
             <li>Services</li>
             <li>Contact</li>
+            <li onClick={goToLogin}> Login </li>
             <img
               src="https://image.flaticon.com/icons/png/512/2922/2922510.png"
               alt=""
