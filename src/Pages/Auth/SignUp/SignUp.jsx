@@ -1,5 +1,4 @@
 import React from "react";
-import "./signup.scss";
 import bgimage from "../../../assets/rightbg.jpg";
 import logoimage from "../../../assets/img1.png";
 // import { auth } from "../../../firebase";
@@ -8,7 +7,7 @@ import { useState } from "react";
 // import { useFormik } from "formik";
 
 const SignUp = () => {
-  const [email, setemail] = useState(" ");
+  const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
   const [mailerr, setmailerr] = useState(" ");
   // const [passerr, setpasserr] = useState("");
