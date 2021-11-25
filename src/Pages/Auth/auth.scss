@@ -30,7 +30,8 @@
 .login_form {
   padding: 2rem;
   width: 26rem;
-  background-color: white;
+  // background-color: white;
+  background-color: aqua;
   border-radius: 5px;
   box-shadow: 0 0 20px 1px gray;
 
@@ -70,6 +71,7 @@
     input {
       border-radius: 5px;
       margin-bottom: 1rem;
+      background: transparent;
       padding: 0.5rem;
     }
 
@@ -93,7 +95,7 @@
   }
 
   .dividing_line {
-    margin-top:2rem;
+    margin-top: 2rem;
     overflow: hidden;
     text-align: center;
     color: #141414;
@@ -119,27 +121,27 @@
     margin-right: -50%;
   }
 
-  .options{
+  .options {
     margin-top: 1rem;
     display: flex;
     align-items: center;
 
-    .icons{
+    .icons {
       display: flex;
       align-items: center;
       margin-left: 1rem;
 
-      a{
+      a {
         margin-left: 15px;
       }
     }
   }
 
-  .create{
+  .create {
     margin-top: 10px;
     text-align: start;
 
-    a{
+    a {
       text-decoration: none;
       color: #434cf5;
     }

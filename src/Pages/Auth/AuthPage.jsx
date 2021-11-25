@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Login from "../Auth/Login/Login";
 import SignUp from "../Auth/SignUp/SignUp";
+import "./auth.scss";
 
 const Authpage = () => {
   return (

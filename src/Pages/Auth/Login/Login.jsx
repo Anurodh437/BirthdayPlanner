@@ -1,6 +1,5 @@
 import React from "react";
 import { useCallback,useState } from "react";
-import "./login.scss";
 import bgimage from "../../../assets/rightbg.jpg";
 import logoimage from "../../../assets/img1.png";
 import { auth } from "../../../firebase";
