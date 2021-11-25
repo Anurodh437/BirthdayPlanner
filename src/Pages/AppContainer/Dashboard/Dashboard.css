@@ -22,6 +22,10 @@ body {
   background: #abf7ff;
 }
 
+a {
+  text-decoration: none;
+}
+
 header {
   display: flex;
   justify-content: space-around;
@@ -45,6 +49,7 @@ header .links li {
 header .links li:hover {
   color: #ff4c29;
 }
+
 
 header .links .profile {
   width: 30px;

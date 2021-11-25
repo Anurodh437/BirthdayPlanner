@@ -5,7 +5,6 @@ import logoimage from "../../../assets/img1.png";
 import { auth } from "../../../firebase";
 
 const Login = () => {
-
   const [error, setError] = useState("");
 
   const handleLogin = useCallback(async (event) => {
@@ -30,8 +29,7 @@ const Login = () => {
     }
     // Firebase: A network AuthError (such as timeout, interrupted connection or unreachable host) has occurred. (auth/network-request-failed).
   }, []);
-
-
+  console.log(error);
   return (
     <div className="main">
       {/* left column */}
@@ -48,7 +46,7 @@ const Login = () => {
           </div>
           <form onSubmit={handleLogin} className="input_form">
             <label htmlFor="email">Email</label>
-            <input type="text" placeholder="enter email" onError={error}/>
+            <input type="text" placeholder="enter email" />
 
             <div className="forgot">
               <label htmlFor="password">Password</label>
@@ -56,7 +54,9 @@ const Login = () => {
             </div>
             <input type="password" placeholder="Enter Password" />
             <div>
-              <button type="submit" className="btn">Login</button>
+              <button type="submit" className="btn">
+                Login
+              </button>
             </div>
           </form>
           <h3 className="dividing_line">Or</h3>

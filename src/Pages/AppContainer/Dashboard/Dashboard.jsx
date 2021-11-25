@@ -1,23 +1,33 @@
 import React from "react";
 import "./Dashboard.css";
-import mainImage from "../../assets/image_processing20211110-13169-mniu50.png";
+import mainImage from "../../../assets/image_processing20211110-13169-mniu50.png";
+import { useHistory } from "react-router";
 
 const Dashboard = () => {
+  const history = useHistory();
+
   const goToLogin = () => {
+    // history.push("/login");
     window.location.href = "/login";
   };
 
+  const goToPlanBirthday = () => {
+    history.push("/planBirthday");
+  };
   return (
     <div>
       <header>
-        <h1 className="logo">BirthdayPlanner</h1>
+        <h1 className="logo">
+          <a style={{ textDecoration: "none" }} href="/dashboard">
+            BirthdayPlanner
+          </a>
+        </h1>
         <div className="links">
           <ul>
-            <li>About Us</li>
             <li>Testimonials</li>
-            <li>Services</li>
             <li>Contact</li>
-            <li onClick={goToLogin}> Login </li>
+            <li onClick={goToPlanBirthday}>Plan Birthday</li>
+            <li onClick={goToLogin}>Login</li>
             <img
               src="https://image.flaticon.com/icons/png/512/2922/2922510.png"
               alt=""
