@@ -1,4 +1,3 @@
-import "./App.css";
 import {
   BrowserRouter as Router,
   Route,
@@ -6,7 +5,7 @@ import {
   Redirect,
 } from "react-router-dom";
 import Authpage from "./Pages/Auth/AuthPage";
-import Dashboard from "./Pages/Dashboard/Dashboard";
+import AppContainer from "./Pages/AppContainer/AppContainer";
 
 function App() {
   return (
@@ -16,11 +15,11 @@ function App() {
           <Route exact path="/">
             <Redirect to="/dashboard" />
           </Route>
-          <Route path={["/login", "/signup"]} exact>
-            {<Authpage />}
+          <Route exact path={["/login", "/signup"]}>
+            <Authpage />
           </Route>
-          <Route path="/dashboard" exact>
-            <Dashboard />
+          <Route exact path={["/dashboard", "/planBirthday"]}>
+            <AppContainer />
           </Route>
         </Switch>
       </Router>

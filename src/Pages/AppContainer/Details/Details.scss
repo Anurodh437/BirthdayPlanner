@@ -1,0 +1,65 @@
+:root {
+  --primary: #ff4c29;
+  --secondary: #0e0e0e;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  color: var(--secondary);
+  box-sizing: border-box;
+  line-height: 1.5;
+  transition: all 0.3s ease-in-out;
+  font-family: "Josefin Sans", Arial;
+  font-family: "IBM Plex Sans Arabic", sans-serif;
+}
+
+body {
+  background: #abf7ff;
+}
+
+header {
+  display: flex;
+  justify-content: space-around;
+  padding: 2rem 0;
+  align-items: center;
+}
+
+header .links ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header .links li {
+  margin: 0 2rem;
+  list-style-type: none;
+  transition: none;
+  cursor: pointer;
+}
+
+header .links li:hover {
+  color: #ff4c29;
+}
+
+header .links .profile {
+  width: 30px;
+  background: #fdf5ca;
+  border-radius: 50%;
+}
+
+header .logo {
+  font-family: "Josefin Sans", Arial;
+}
+
+@media (max-width: 1100px) {
+  header {
+    flex-direction: column;
+  }
+
+  header .logo {
+    margin-bottom: 1rem;
+    color: var(--primary);
+  }
+}
