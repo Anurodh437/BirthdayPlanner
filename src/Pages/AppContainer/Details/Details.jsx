@@ -28,6 +28,9 @@ const Details = () => {
           </ul>
         </div>
       </header>
+      <div>
+        <h1>Find a Restaurant</h1>
+      </div>
 
       {/* Notes Card Container */}
       <div>

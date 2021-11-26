@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { CssBaseline, Grid } from "@material-ui/core";
-
 import { getPlacesData, getWeatherData } from "../../../api/travelAdvisorAPI";
 import List from "../../../components/List/List";
 import Map from "../../../components/Map/Map";
 import "./Restaurants.scss";
+import { useHistory } from "react-router";
 
 const Restaurants = () => {
   const [type, setType] = useState("restaurants");
@@ -62,16 +62,24 @@ const Restaurants = () => {
   //   setCoords({ lat, lng });
   // };
 
+  const history = useHistory();
+  const goToDashboard = () => {
+    history.push("/planBirthday");
+  };
+
   return (
     <div className="restaurant_container">
+      <h2 className="dashboard" onClick={goToDashboard}>
+        Go Back
+      </h2>
       <CssBaseline />
       <Grid
         className="restaurants_list"
         container
-        spacing={3}
+        spacing={1}
         style={{ width: "100%" }}
       >
-        <Grid item xs={12} md={5}>
+        <Grid item xs={10} md={5}>
           <List
             isLoading={isLoading}
             childClicked={childClicked}
@@ -85,12 +93,10 @@ const Restaurants = () => {
 
         <Grid
           item
-          xs={12}
-          md={7}
+          xs={10}
+          md={6}
           style={{
             display: "flex",
-            width: "100vw",
-            height: "100vh",
             justifyContent: "center",
             alignItems: "center",
           }}

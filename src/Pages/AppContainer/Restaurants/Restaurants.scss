@@ -4,6 +4,7 @@
 }
 .restaurant_container {
   background-color: #abf7ff;
+  padding-top: 30px;
 }
 
 .restaurant_page_head {
@@ -11,4 +12,22 @@
   font-weight: bolder;
   font-size: xx-large;
   color: brown;
+}
+
+.dashboard {
+  margin-left: 20px;
+  padding: 8px;
+  width: 150px;
+  background-color: rgb(207, 207, 207);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  box-shadow: 5px black;
+  font-size: medium;
+  box-sizing: border-box;
+}
+
+.dashboard:hover {
+  background-color: #fa8b8b;
 }

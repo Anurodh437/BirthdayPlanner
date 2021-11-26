@@ -36,7 +36,7 @@ const List = ({
       <h1 className="restaurant_page_head">Hotels and Restaurants near you.</h1>
       {isLoading ? (
         <div className={classes.loading}>
-          <CircularProgress size="5rem" />
+          <CircularProgress size="2rem" />
         </div>
       ) : (
         <>
@@ -65,7 +65,7 @@ const List = ({
               <MenuItem value="4.5">Above 4.5</MenuItem>
             </Select>
           </FormControl>
-          <Grid container spacing={3} className={classes.list}>
+          <Grid container spacing={1} className={classes.list}>
             {places?.map((place, i) => (
               <Grid ref={elRefs[i]} key={i} item xs={12}>
                 <PlaceDetails
