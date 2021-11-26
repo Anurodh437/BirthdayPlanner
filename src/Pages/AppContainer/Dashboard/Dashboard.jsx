@@ -14,6 +14,11 @@ const Dashboard = () => {
   const goToPlanBirthday = () => {
     history.push("/planBirthday");
   };
+
+  const goToContact = () => {
+    history.push("/contact");
+  };
+
   return (
     <div className="body">
       <header className="header">
@@ -25,7 +30,7 @@ const Dashboard = () => {
         <div className="links">
           <ul>
             <li>Testimonials</li>
-            <li>Contact</li>
+            <li onClick={goToContact}>Contact</li>
             <li onClick={goToPlanBirthday}>Plan Birthday</li>
             <li onClick={goToLogin}>Login</li>
             <img

@@ -17,7 +17,7 @@
 
 .left_col {
   display: flex;
-  background-color: #ffffff;
+  background-color: rgb(238, 238, 238);
   width: 100%;
   justify-content: center;
   align-items: center;
@@ -34,9 +34,8 @@
 .login_form {
   padding: 2rem;
   width: 26rem;
-  // background-color: white;
-  background-color: aqua;
-  border-radius: 5px;
+  background-color:#bdf9ff;
+  border-radius: 10px;
   box-shadow: 0 0 20px 1px gray;
 
   .about {
@@ -73,6 +72,7 @@
     }
 
     input {
+      border: 1px solid gray;
       border-radius: 5px;
       margin-bottom: 1rem;
       background: transparent;
@@ -90,11 +90,6 @@
       width: 6.5rem;
       border: none;
       cursor: pointer;
-    }
-
-    .btn:hover {
-      outline-style: solid;
-      outline-color: cyan;
     }
   }
 
