@@ -1,5 +1,5 @@
 import React from "react";
-import "./Dashboard.css";
+import "./Dashboard.scss";
 import mainImage from "../../../assets/image_processing20211110-13169-mniu50.png";
 import { useHistory } from "react-router";
 
@@ -20,8 +20,8 @@ const Dashboard = () => {
   };
 
   return (
-    <div>
-      <header>
+    <div className="body">
+      <header className="header">
         <h1 className="logo">
           <a style={{ textDecoration: "none" }} href="/dashboard">
             BirthdayPlanner
