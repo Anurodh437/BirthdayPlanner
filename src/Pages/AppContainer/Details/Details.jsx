@@ -1,14 +1,16 @@
 import React from "react";
 import { useHistory } from "react-router";
-
+import "./Details.scss";
 const Details = () => {
   const history = useHistory();
+
   const goToHome = () => {
     history.push("/dashboard");
   };
+
   return (
-    <div>
-      <header>
+    <div className="body">
+      <header className="header">
         <h1 className="logo">
           <a href="/dashboard">BirthdayPlanner</a>
         </h1>
