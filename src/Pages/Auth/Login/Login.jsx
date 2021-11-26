@@ -1,5 +1,5 @@
 import React from "react";
-import { useCallback,useState } from "react";
+import { useCallback, useState } from "react";
 import bgimage from "../../../assets/rightbg.jpg";
 import logoimage from "../../../assets/img1.png";
 import { auth } from "../../../firebase";
@@ -36,13 +36,12 @@ const Login = () => {
       <div className="left_col">
         <div className="login_form">
           <div className="heading">
-            <h1>Login</h1>
+            <h1 className="text-3xl font-bold font-sans">Login</h1>
             <img width="80" src={logoimage} alt="" />
           </div>
-          <div className="about">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni eius
-            assumenda iure necessitatibus autem rem dolor asperiores a illo
-            reiciendis.
+          <div className="about text-center text-sm">
+            <span className="text-purple-700 font-bold text-2xl"> Party Planning Made Easy.</span><br/> Free Tools you need to Plan, Host &
+            Celebrate Birthdays.
           </div>
           <form onSubmit={handleLogin} className="input_form">
             <label htmlFor="email">Email</label>
@@ -53,7 +52,7 @@ const Login = () => {
               <a href=" ">Forgot Password?</a>
             </div>
             <input type="password" placeholder="Enter Password" />
-            <div>
+            <div className="flex justify-center">
               <button type="submit" className="btn">
                 Login
               </button>

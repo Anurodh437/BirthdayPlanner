@@ -55,13 +55,12 @@ const SignUp = () => {
       <div className="left_col">
         <div className="login_form">
           <div className="heading">
-            <h1>SignUp</h1>
+            <h1 className="text-2xl font-bold font-sans">SignUp</h1>
             <img width="80" src={logoimage} alt="" />
           </div>
-          <div className="about">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni eius
-            assumenda iure necessitatibus autem rem dolor asperiores a illo
-            reiciendis.
+          <div className="about text-center text-sm">
+            <span className="text-purple-700 font-bold text-2xl"> Party Planning Made Easy.</span><br/> Free Tools you need to Plan, Host &
+            Celebrate Birthdays.
           </div>
 
           <form className="input_form">
@@ -88,7 +87,7 @@ const SignUp = () => {
               onChange={(e) => emailInput(e)}
               placeholder="Enter Password"
             />
-            <div>
+            <div className="flex justify-center">
               <button className="btn">SignUp</button>
             </div>
           </form>
