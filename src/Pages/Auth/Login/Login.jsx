@@ -43,10 +43,9 @@ const Login = () => {
           </div>
           <div className="about text-center text-sm">
             <span className="text-purple-700 font-bold text-2xl">
-              {" "}
               Party Planning Made Easy.
             </span>
-            <br /> Free Tools you need to Plan, Host & Celebrate Birthdays.
+            {/* <br /> Free Tools you need to Plan, Host & Celebrate Birthdays. */}
           </div>
           <form onSubmit={handleLogin} className="input_form">
             <label htmlFor="email">Email</label>

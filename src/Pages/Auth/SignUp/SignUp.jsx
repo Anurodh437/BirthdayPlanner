@@ -9,7 +9,7 @@ import { useState } from "react";
 const SignUp = () => {
   const [error, setError] = useState("");
   const [email, setemail] = useState("");
-  const [pass, setPass] = useState("")
+  const [pass, setPass] = useState("");
 
   const handleSignUp = useCallback(async (event) => {
     event.preventDefault();
@@ -37,8 +37,11 @@ const SignUp = () => {
             <img width="80" src={logoimage} alt="" />
           </div>
           <div className="about text-center text-sm">
-            <span className="text-purple-700 font-bold text-2xl"> Party Planning Made Easy.</span><br/> Free Tools you need to Plan, Host &
-            Celebrate Birthdays.
+            <span className="text-purple-700 font-bold text-2xl">
+              Party Planning Made Easy.
+            </span>
+            {/* <br/> Free Tools you need to Plan, Host &
+            Celebrate Birthdays. */}
           </div>
 
           <form onSubmit={handleSignUp} className="input_form">

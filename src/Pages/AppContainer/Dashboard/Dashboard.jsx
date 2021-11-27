@@ -12,7 +12,9 @@ const Dashboard = () => {
   };
 
   const goToPlanBirthday = () => {
-    history.push("/planBirthday");
+    window.location.href = "/planBirthday";
+
+    // history.push("/planBirthday");
   };
 
   const goToContact = () => {
@@ -20,7 +22,7 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="body">
+    <div className="body" style={{ backgroundColor: "#abf7ff" }}>
       <header className="header">
         <h1 className="logo">
           <a style={{ textDecoration: "none" }} href="/dashboard">
