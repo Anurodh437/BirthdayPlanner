@@ -1,7 +1,7 @@
 import React from "react";
 import { useCallback, useState } from "react";
 import bgimage from "../../../assets/rightbg.jpg";
-import logoimage from "../../../assets/img1.png";
+import logoimage from "../../../assets/1103-confetti-outline (2).gif";
 import { auth } from "../../../firebase";
 
 const Login = () => {
@@ -30,6 +30,7 @@ const Login = () => {
       else setError(error.message);
     }
     // Firebase: A network AuthError (such as timeout, interrupted connection or unreachable host) has occurred. (auth/network-request-failed).
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   console.log(error);
   return (
@@ -139,7 +140,7 @@ const Login = () => {
             </div>
           </div>
           <div className="create">
-            <a href=" ">Don’t have an account? Sign Up here</a>
+            <a href="/signup">Don’t have an account? Sign Up here</a>
           </div>
         </div>
       </div>

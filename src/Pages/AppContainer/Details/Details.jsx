@@ -41,7 +41,7 @@ const Details = () => {
 
       {/* Notes Card Container */}
       <div className="card_container">
-        <a class="gift_card1" href=" ">
+        <a class="gift_card1" href="/gifts">
           <h3 className="card_head">Gifts</h3>
           <p class="small">
             Find the best gift for your loved ones on their birthday Lorem ipsum

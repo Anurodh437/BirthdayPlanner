@@ -1,10 +1,8 @@
 import React, { useCallback } from "react";
 import bgimage from "../../../assets/rightbg.jpg";
-import logoimage from "../../../assets/img1.png";
+import logoimage from "../../../assets/1103-confetti-outline (2).gif";
 import { auth } from "../../../firebase";
 import { useState } from "react";
-// import * as yup from "yup";
-// import { useFormik } from "formik";
 
 const SignUp = () => {
   const [error, setError] = useState("");
@@ -25,6 +23,7 @@ const SignUp = () => {
         setError("The email address is already in use by another account.");
       else setError(error.message);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -135,7 +134,7 @@ const SignUp = () => {
             </div>
           </div>
           <div className="create">
-            <a href=" ">Already Have an Account? Sign In here</a>
+            <a href="/login">Already Have an Account? Sign In here</a>
           </div>
         </div>
       </div>

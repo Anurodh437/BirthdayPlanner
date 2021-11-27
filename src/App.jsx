@@ -41,7 +41,7 @@ function App() {
         </Route>
         <Route
           exact
-          path={["/dashboard", "/planBirthday", "/restaurants", "/contact"]}
+          path={["/dashboard", "/planBirthday", "/restaurants", "/contact","/gifts"]}
         >
           <AppContainer />
         </Route>
