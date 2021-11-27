@@ -5,6 +5,7 @@ import Contact from "./Contact/Contact";
 
 import Restaurants from "./Restaurants/Restaurants";
 import Details from "./Details/Details";
+import Gifts from "./Gifts/Gifts";
 const AppContainer = () => {
   return (
     <Router>
@@ -14,6 +15,9 @@ const AppContainer = () => {
         </Route>
         <Route exact path="/restaurants">
           <Restaurants />
+        </Route>
+        <Route exact path="/gifts">
+          <Gifts/>
         </Route>
         <Route exact path="/planBirthday">
           <Details />
