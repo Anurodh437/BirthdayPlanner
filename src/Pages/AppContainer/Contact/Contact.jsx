@@ -1,13 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 // import { FaPhoneAlt } from "react-icons/fa";
 // import { IoMailOutline, IoLocationSharp } from "react-icons/io5";
-
+import Modal from "../../../components/Modal/Modal";
 const Contact = () => {
+  const [modal, setModal] = useState(false);
+
+  console.log("modal ", modal);
+
+  const showModal = () => {
+    setModal(!modal);
+  };
+
   return (
     <div className="bg-gray-800 text-gray-100 h-screen pt-4">
+      <Modal show={modal} />
       <div className="text-center w-full font-semibold text-4xl text-white tracking-widest">
-        Contact Us<br/>
-        <p className="text-base text-white tracking-normal font-extralight">Have any questions? We'd love to here from you.</p>
+        Contact Us
+        <br />
+        <p className="text-base text-white tracking-normal font-extralight">
+          Have any questions? We'd love to here from you.
+        </p>
       </div>
       <div className="max-w-screen-xl mt-5 px-8 grid gap-8 grid-cols-1 md:grid-cols-2 md:px-12 lg:px-16 xl:px-32 py-16 mx-auto bg-gray-100 text-gray-900 rounded-lg shadow-lg">
         <div className="flex flex-col justify-between">
@@ -984,24 +996,36 @@ const Contact = () => {
             <input
               className="w-full bg-gray-300 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
               type="text"
-              placeholder=""
+              placeholder="Name"
+              required
             />
           </div>
           <div className="mt-8">
-            <span className="uppercase text-sm text-gray-600 font-bold">Email</span>
+            <span className="uppercase text-sm text-gray-600 font-bold">
+              Email
+            </span>
             <input
               className="w-full bg-gray-300 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-              type="text"
+              type="email"
+              required
+              placeholder="email"
             />
           </div>
           <div className="mt-8">
             <span className="uppercase text-sm text-gray-600 font-bold">
               Message
             </span>
-            <textarea className="w-full h-32 bg-gray-300 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"></textarea>
+            <textarea
+              required
+              placeholder="Type your message here"
+              className="w-full h-32 bg-gray-300 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
+            ></textarea>
           </div>
           <div className="mt-8">
-            <button className="uppercase text-sm font-bold tracking-wide bg-indigo-500 text-gray-100 p-3 rounded-lg w-full focus:outline-none focus:shadow-outline">
+            <button
+              onClick={showModal}
+              className="uppercase text-sm font-bold tracking-wide bg-indigo-500 text-gray-100 p-3 rounded-lg w-full focus:outline-none focus:shadow-outline"
+            >
               Send Message
             </button>
           </div>
