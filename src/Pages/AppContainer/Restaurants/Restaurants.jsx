@@ -69,9 +69,9 @@ const Restaurants = () => {
 
   return (
     <div className="restaurant_container">
-      <h2 className="dashboard" onClick={goToDashboard}>
+      <button className="dashboard" onClick={goToDashboard}>
         Go Back
-      </h2>
+      </button>
       <CssBaseline />
       <Grid
         className="restaurants_list"

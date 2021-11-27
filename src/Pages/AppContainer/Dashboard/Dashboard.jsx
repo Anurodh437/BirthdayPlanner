@@ -54,7 +54,7 @@ const Dashboard = () => {
         <img className="banner_img" src={mainImage} alt="" />
 
         <div className="right">
-          <div className="quality">
+          {/* <div className="quality">
             <div className="icon">
               <i className="fas fa-tint"></i>
             </div>
@@ -62,7 +62,7 @@ const Dashboard = () => {
               <h1>Personalized birthday messages</h1>
               <p>Lorem</p>
             </div>
-          </div>
+          </div> */}
           <div className="quality">
             <div className="icon">
               <i className="fas fa-weight"></i>
@@ -78,7 +78,7 @@ const Dashboard = () => {
             </div>
             <div className="data">
               <h1>Nereby Restaurants</h1>
-              <p>8.25 x 31.875</p>
+              <p>Best Restaurants & hotels Nereby</p>
             </div>
           </div>
         </div>

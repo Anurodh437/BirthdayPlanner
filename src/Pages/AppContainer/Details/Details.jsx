@@ -7,7 +7,9 @@ const Details = () => {
   const goToHome = () => {
     history.push("/dashboard");
   };
-
+  const goToContact = () => {
+    history.push("/contact");
+  };
   return (
     <div className="body">
       <header className="header">
@@ -18,7 +20,7 @@ const Details = () => {
           <ul>
             <li onClick={goToHome}>Home</li>
             <li>Testimonials</li>
-            <li>Contact</li>
+            <li onClick={goToContact}>Contact</li>
             <li>Logout</li>
             <img
               src="https://image.flaticon.com/icons/png/512/2922/2922510.png"
@@ -28,20 +30,30 @@ const Details = () => {
           </ul>
         </div>
       </header>
-      <div>
-        <h1>Find a Restaurant</h1>
-      </div>
 
       {/* Notes Card Container */}
-      <div>
-        {/* Notes */}
-        <div>
-          <h1>Name</h1>
-          <div>
-            <h2>Date :</h2>
-            <p>Desc</p>
+      <div className="card_container">
+        <a class="gift_card1" href=" ">
+          <h3 className="card_head">Gifts</h3>
+          <p class="small">
+            Find the best gift for your loved ones on their birthday Lorem ipsum
+            dolor sit amet consectetur adipisicing
+          </p>
+          <div class="go-corner" href="#">
+            <div class="go-arrow">→</div>
           </div>
-        </div>
+        </a>
+
+        <a class="gift_card2" href="/restaurants">
+          <h3 className="card_head">Restaurants & Hotels</h3>
+          <p class="small">
+            Find some of the best restaurants near your place to chill out with
+            your family and friends on birthdayys.
+          </p>
+          <div class="go-corner2" href="#">
+            <div class="go-arrow2">→</div>
+          </div>
+        </a>
       </div>
     </div>
   );
