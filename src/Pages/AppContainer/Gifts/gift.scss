@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+*{
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.gift{
+    background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url("../../../assets/ekaterina-shevchenko-ZLTlHeKbh04-unsplash.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.awes{
+    font-family: 'Great Vibes', cursive;
+}
+
+.c-card {
+    img {    
+      transition: transform .3s ease-in-out; 
+    }
+    
+    &:hover {
+      img {
+        transform: scale(1.05)
+      }
+    }
+  }
+  
