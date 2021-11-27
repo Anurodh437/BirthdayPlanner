@@ -6,15 +6,17 @@ import { auth } from "../../../firebase";
 
 const Login = () => {
   const [error, setError] = useState("");
+  const [email, setEmail] = useState("");
+  const [pass, setPass] = useState("");
 
+  console.log("User ", email, pass);
   const handleLogin = useCallback(async (event) => {
     event.preventDefault();
     setError("");
-    const { email, password } = event.target.elements;
-    // console.log("User ", email.value, password.value);
+    // const { email, password } = event.target.elements;
     try {
-      await auth.signInWithEmailAndPassword(email.value, password.value);
-      // console.log("logged In");
+      await auth.signInWithEmailAndPassword(email, pass);
+      console.log("logged In");
     } catch (error) {
       // console.log(error.code);
       if (error.code === "auth/wrong-password")
@@ -40,18 +42,31 @@ const Login = () => {
             <img width="80" src={logoimage} alt="" />
           </div>
           <div className="about text-center text-sm">
-            <span className="text-purple-700 font-bold text-2xl"> Party Planning Made Easy.</span><br/> Free Tools you need to Plan, Host &
-            Celebrate Birthdays.
+            <span className="text-purple-700 font-bold text-2xl">
+              {" "}
+              Party Planning Made Easy.
+            </span>
+            <br /> Free Tools you need to Plan, Host & Celebrate Birthdays.
           </div>
           <form onSubmit={handleLogin} className="input_form">
             <label htmlFor="email">Email</label>
-            <input type="text" placeholder="enter email" />
+            <input
+              type="text"
+              placeholder="enter email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
 
             <div className="forgot">
               <label htmlFor="password">Password</label>
               <a href=" ">Forgot Password?</a>
             </div>
-            <input type="password" placeholder="Enter Password" />
+            <input
+              type="password"
+              placeholder="Enter Password"
+              value={pass}
+              onChange={(e) => setPass(e.target.value)}
+            />
             <div className="flex justify-center">
               <button type="submit" className="btn">
                 Login

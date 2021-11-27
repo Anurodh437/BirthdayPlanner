@@ -1,11 +1,18 @@
 import React from "react";
 import { useHistory } from "react-router";
 import "./Details.scss";
+import {auth} from "../../../firebase";
 const Details = () => {
   const history = useHistory();
 
   const goToHome = () => {
     history.push("/dashboard");
+  };
+
+  const logout = async () => {
+    await auth.signOut();
+    localStorage.removeItem("loggedIn");
+    window.location.href = "/login";
   };
 
   return (
@@ -19,7 +26,7 @@ const Details = () => {
             <li onClick={goToHome}>Home</li>
             <li>Testimonials</li>
             <li>Contact</li>
-            <li>Logout</li>
+            <li onClick={logout}>Logout</li>
             <img
               src="https://image.flaticon.com/icons/png/512/2922/2922510.png"
               alt=""

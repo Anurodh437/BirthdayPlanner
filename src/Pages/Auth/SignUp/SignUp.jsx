@@ -1,53 +1,31 @@
-import React from "react";
+import React, { useCallback } from "react";
 import bgimage from "../../../assets/rightbg.jpg";
 import logoimage from "../../../assets/img1.png";
-// import { auth } from "../../../firebase";
+import { auth } from "../../../firebase";
 import { useState } from "react";
 // import * as yup from "yup";
 // import { useFormik } from "formik";
 
 const SignUp = () => {
+  const [error, setError] = useState("");
   const [email, setemail] = useState("");
-  const [password, setpassword] = useState("");
-  const [mailerr, setmailerr] = useState(" ");
-  // const [passerr, setpasserr] = useState("");
-  console.log(setpassword);
+  const [pass, setPass] = useState("")
 
-  function ValidateEmail(input) {
-    var validRegex = /^w+([.-]?w+)*@w+([.-]?w+)*(.w{2,3})+$/;
-
-    if (input.match(validRegex)) {
-      console.log("Valid email address!");
-      setmailerr("Valid email address!");
-      return true;
-    } else {
-      console.log("Invalid email address!");
-      setmailerr("Invalid email address!");
-
-      return false;
+  const handleSignUp = useCallback(async (event) => {
+    event.preventDefault();
+    setError("");
+    // const { email, password } = event.target.elements;
+    console.log(error);
+    try {
+      await auth.createUserWithEmailAndPassword(email, pass);
+      console.log("User Created ");
+    } catch (error) {
+      // console.log(error.code);
+      if (error.code === "auth/email-already-in-use")
+        setError("The email address is already in use by another account.");
+      else setError(error.message);
     }
-  }
-
-  const emailInput = (e) => {
-    setemail(e.target.value);
-    ValidateEmail(email);
-  };
-  // console.log(" Mail Error ", mailerr);
-  // const handleSignUp = useCallback(async (event) => {
-  //   event.preventDefault();
-  //   // setError("");
-  //   const { email, password, name } = event.target.elements;
-  //   console.log(name.value);
-  //   try {
-  //     await auth.createUserWithEmailAndPassword(email.value, password.value);
-  //     // console.log("User Created ");
-  //   } catch (error) {
-  //     // console.log(error.code);
-  //     if (error.code === "auth/email-already-in-use")
-  //       setError("The email address is already in use by another account.");
-  //     else setError(error.message);
-  //   }
-  // }, []);
+  }, []);
 
   return (
     <div className="main">
@@ -63,17 +41,16 @@ const SignUp = () => {
             Celebrate Birthdays.
           </div>
 
-          <form className="input_form">
+          <form onSubmit={handleSignUp} className="input_form">
             <label htmlFor="email">Email</label>
             <input
               id="email"
               name="email"
-              value={email}
-              onChange={(e) => emailInput(e)}
               type="text"
               placeholder="enter email"
+              value={email}
+              onChange={(e) => setemail(e.target.value)}
             />
-            <p>{mailerr}</p>
 
             <div className="forgot">
               <label htmlFor="password">Password</label>
@@ -83,8 +60,8 @@ const SignUp = () => {
               id="password"
               name="password"
               type="password"
-              value={password}
-              onChange={(e) => emailInput(e)}
+              value={pass}
+              onChange={(e) => setPass(e.target.value)}
               placeholder="Enter Password"
             />
             <div className="flex justify-center">
