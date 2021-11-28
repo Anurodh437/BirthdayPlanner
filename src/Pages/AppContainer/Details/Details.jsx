@@ -18,6 +18,10 @@ const Details = () => {
     window.location.href = "/login";
   };
 
+  const goToTestimonials = () => {
+    history.push("/testimonials");
+  };
+
   return (
     <div className="body">
       <div class="bg"></div>
@@ -33,7 +37,7 @@ const Details = () => {
         <div className="links">
           <ul>
             <li onClick={goToHome}>Home</li>
-            <li>Testimonials</li>
+            <li onClick={goToTestimonials}>Testimonials</li>
             <li onClick={goToContact}>Contact</li>
             <li onClick={logout}>Logout</li>
             <img
