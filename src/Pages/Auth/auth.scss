@@ -1,9 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@500&display=swap");
 
 * {
-  font-family: "IBM Plex Sans Arabic", sans-serif;
-  font-family: "Josefin Sans", Arial;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -16,12 +12,30 @@
 }
 
 .left_col {
+  background: linear-gradient(-45deg,#21bbf3, rgb(15, 231, 15),orangered,rgb(252, 118, 140));
+	background-size: 400% 400%;
+	animation: gradient 5s ease infinite;
+	height: 100vh;
   display: flex;
-  background-color: rgb(238, 238, 238);
   width: 100%;
   justify-content: center;
   align-items: center;
 }
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+
+
 
 .right_col {
   display: flex;
@@ -34,7 +48,7 @@
 .login_form {
   padding: 2rem;
   width: 26rem;
-  background-color:#bdf9ff;
+  background-color:white;
   border-radius: 10px;
   box-shadow: 0 0 20px 1px gray;
 
@@ -85,7 +99,7 @@
       font-weight: 600;
       background-color: #ff5668;
       font-size: 15px;
-      padding: 0.6rem;
+      padding: 0.5rem;
       border-radius: 50px;
       width: 6.5rem;
       border: none;

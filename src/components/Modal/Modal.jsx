@@ -4,7 +4,7 @@ import "./Modal.scss";
 
 const Modal = (props) => {
   let disp = " hidden ";
-  if (props.show == true) disp = "block";
+  if (props.show === true) disp = "block";
 
   console.log(props.show, disp);
   const history = useHistory();
@@ -35,7 +35,7 @@ const Modal = (props) => {
           <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
             <div className="sm:flex sm:items-start">
               <div className="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
-                <img src="https://img.icons8.com/external-tal-revivo-color-tal-revivo/50/000000/external-checkbox-tick-mark-accept-your-checklist-queries-basic-color-tal-revivo.png" />
+                <img src="https://img.icons8.com/external-tal-revivo-color-tal-revivo/50/000000/external-checkbox-tick-mark-accept-your-checklist-queries-basic-color-tal-revivo.png" alt=""/>
               </div>
               <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
                 <h3
