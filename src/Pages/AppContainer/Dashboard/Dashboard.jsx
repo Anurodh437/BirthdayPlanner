@@ -13,12 +13,14 @@ const Dashboard = () => {
 
   const goToPlanBirthday = () => {
     window.location.href = "/planBirthday";
-
-    // history.push("/planBirthday");
   };
 
   const goToContact = () => {
     history.push("/contact");
+  };
+
+  const goToTestimonials = () => {
+    history.push("/testimonials");
   };
 
   return (
@@ -31,7 +33,7 @@ const Dashboard = () => {
         </h1>
         <div className="links">
           <ul>
-            <li>Testimonials</li>
+            <li onClick={goToTestimonials}>Testimonials</li>
             <li onClick={goToContact}>Contact</li>
             <li onClick={goToPlanBirthday}>Plan Birthday</li>
             <li onClick={goToLogin}>Login</li>
@@ -56,15 +58,6 @@ const Dashboard = () => {
         <img className="banner_img" src={mainImage} alt="" />
 
         <div className="right">
-          {/* <div className="quality">
-            <div className="icon">
-              <i className="fas fa-tint"></i>
-            </div>
-            <div className="data">
-              <h1>Personalized birthday messages</h1>
-              <p>Lorem</p>
-            </div>
-          </div> */}
           <div className="quality">
             <div className="icon">
               <i className="fas fa-weight"></i>

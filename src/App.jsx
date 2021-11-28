@@ -4,6 +4,7 @@ import {
   Switch,
   Redirect,
 } from "react-router-dom";
+import "./App.css"
 
 import Authpage from "./Pages/Auth/AuthPage";
 import AppContainer from "./Pages/AppContainer/AppContainer";
@@ -41,7 +42,7 @@ function App() {
         </Route>
         <Route
           exact
-          path={["/dashboard", "/planBirthday", "/restaurants", "/contact","/gifts"]}
+          path={["/dashboard", "/planBirthday", "/restaurants", "/contact","/gifts","/testimonials"]}
         >
           <AppContainer />
         </Route>
