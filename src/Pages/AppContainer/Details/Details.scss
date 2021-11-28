@@ -118,9 +118,26 @@
   // height: 100%;
   margin-top: 80px;
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
+}
+
+.linear-img {
+  position: relative;
+  top: -50px;
+  left: 0px;
+  animation: marquee 10s linear infinite;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateY(0%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
 }
 
 .card_head {

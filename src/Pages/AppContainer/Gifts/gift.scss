@@ -1,26 +1,34 @@
-*{
-
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.gift{
-    background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url("../../../assets/ekaterina-shevchenko-ZLTlHeKbh04-unsplash.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+.gift {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("../../../assets/ekaterina-shevchenko-ZLTlHeKbh04-unsplash.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.down-bg {
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQr1ASc33v4BYZK9Y5FJpgx_WdNeF1_phHs-j3T-Nrn9kvRqdo-DZ6LtzQjN_B7fFu4JKU&usqp=CAU");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .c-card {
-    img {    
-      transition: transform .3s ease-in-out; 
-    }
-    
-    &:hover {
-      img {
-        transform: scale(1.05)
-      }
+  height: 510px;
+  img {
+    transition: transform 0.3s ease-in-out;
+    background-position: center;
+    background-size: cover;
+  }
+
+  &:hover {
+    img {
+      transform: scale(1.05);
     }
   }
-  
+}
