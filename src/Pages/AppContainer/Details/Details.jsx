@@ -21,6 +21,22 @@ const Details = () => {
     history.push("/testimonials");
   };
 
+  // //   reading data from firestore
+  // useEffect(() => {
+  //   async function fetchData() {
+  //     // to get data from firebase collection by uId
+  //     const response = await database.form_Data.doc(uID).get();
+  //     console.log("Form Data by ID", response.data());
+
+  //     //getting form_Data in the collection
+  //     const data = await database.form_Data.get();
+  //     console.log("Form Data");
+  //     data.forEach((each) => console.log(each.data()));
+
+  //   }
+  //   fetchData();
+  // }, []);
+
   return (
     <div className="body">
       <div class="bg"></div>
