@@ -13,9 +13,10 @@ const Login = () => {
   const handleLogin = useCallback(async (event) => {
     event.preventDefault();
     setError("");
-    // const { email, password } = event.target.elements;
+    const { email, password } = event.target.elements;
+    // console.log("User ", email.value, password.value);
     try {
-      await auth.signInWithEmailAndPassword(email, pass);
+      await auth.signInWithEmailAndPassword(email.value, password.value);
       console.log("logged In");
     } catch (error) {
       // console.log(error.code);
@@ -51,7 +52,8 @@ const Login = () => {
           <form onSubmit={handleLogin} className="input_form">
             <label htmlFor="email">Email</label>
             <input
-              type="text"
+              id="email"
+              type="email"
               placeholder="enter email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -62,6 +64,7 @@ const Login = () => {
               <a href=" ">Forgot Password?</a>
             </div>
             <input
+              id="password"
               type="password"
               placeholder="Enter Password"
               value={pass}

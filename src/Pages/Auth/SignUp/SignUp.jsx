@@ -12,10 +12,9 @@ const SignUp = () => {
   const handleSignUp = useCallback(async (event) => {
     event.preventDefault();
     setError("");
-    // const { email, password } = event.target.elements;
-    console.log(error);
+    const { email, password } = event.target.elements;
     try {
-      await auth.createUserWithEmailAndPassword(email, pass);
+      await auth.createUserWithEmailAndPassword(email.value, password.value);
       console.log("User Created ");
     } catch (error) {
       // console.log(error.code);
@@ -25,6 +24,8 @@ const SignUp = () => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  console.log(error);
 
   return (
     <div className="main">

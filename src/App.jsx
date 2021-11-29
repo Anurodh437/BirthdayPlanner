@@ -4,7 +4,7 @@ import {
   Switch,
   Redirect,
 } from "react-router-dom";
-import "./App.css"
+import "./App.css";
 
 import Authpage from "./Pages/Auth/AuthPage";
 import AppContainer from "./Pages/AppContainer/AppContainer";
@@ -38,11 +38,19 @@ function App() {
           <Redirect to="/dashboard" />
         </Route>
         <Route exact path={["/login", "/signup"]}>
-          <Authpage />
+          {user ? <Redirect to="/dashboard" /> : <Authpage />}
         </Route>
+
         <Route
           exact
-          path={["/dashboard", "/planBirthday", "/restaurants", "/contact","/gifts","/testimonials"]}
+          path={[
+            "/dashboard",
+            "/planBirthday",
+            "/restaurants",
+            "/contact",
+            "/gifts",
+            "/testimonials",
+          ]}
         >
           <AppContainer />
         </Route>
