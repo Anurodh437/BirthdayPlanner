@@ -27,7 +27,7 @@ function App() {
     };
   });
 
-  console.log(user);
+  // console.log(user);
   const loggedIn = localStorage.getItem("loggedIn");
   if (loggedIn === "yes" && !user) return <h1> Loading </h1>;
 
