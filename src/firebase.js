@@ -21,7 +21,8 @@ export const auth = firebase.auth();
 const firestore = firebase.firestore();
 
 export const database = {
-  users: firestore.collection("Feedback"),
+  feedback: firestore.collection("Feedback"),
+  form_Data: firestore.collection("Form Data"),
 };
 
 export const storage = firebase.storage();

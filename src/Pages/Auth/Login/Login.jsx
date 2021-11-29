@@ -39,7 +39,7 @@ const Login = () => {
       <div className="left_col">
         <div className="login_form">
           <div className="heading">
-            <h1 className="text-3xl font-bold font-sans">Login</h1>
+            <h1 className="text-3xl font-bold font-sans">Login to Continue</h1>
             <img width="80" src={logoimage} alt="" />
           </div>
           <div className="about text-center text-sm">

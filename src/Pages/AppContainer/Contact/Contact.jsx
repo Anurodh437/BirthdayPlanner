@@ -12,7 +12,8 @@ const Contact = () => {
 
   // console.log("modal ", modal);
 
-  const showModal = () => {
+  const showModal = (event) => {
+    event.preventDefault();
     createEntry();
     setModal(!modal);
   };
@@ -20,8 +21,9 @@ const Contact = () => {
   //   creating data in firestore
   const createEntry = async () => {
     try {
-      const res = await database.users.add({ name, email, message });
-      console.log("Added Data ", res);
+      const res = await database.feedback.add({ name, email, message });
+      console.log("Feedback Recorded");
+      console.log(res);
     } catch (error) {
       console.log(error);
     }
@@ -43,10 +45,10 @@ const Contact = () => {
             <h2 className="text-4xl lg:text-5xl font-bold leading-tight">
               Lets talk about everything!
             </h2>
-            <div className="text-gray-700 mt-8">
+            {/* <div className="text-gray-700 mt-8">
               Hate forms? Send us an <span className="underline">email</span>{" "}
               instead.
-            </div>
+            </div> */}
           </div>
           <div className="mt-8 text-center">
             <svg
@@ -1004,7 +1006,7 @@ const Contact = () => {
             </svg>
           </div>
         </div>
-        <div className="">
+        <form className="" onSubmit={showModal}>
           <div>
             <span className="uppercase text-sm text-gray-600 font-bold">
               Full Name
@@ -1045,13 +1047,14 @@ const Contact = () => {
           </div>
           <div className="mt-8">
             <button
-              onClick={showModal}
+              // onClick={showModal}
+              type="submit"
               className="uppercase text-sm font-bold tracking-wide bg-indigo-500 text-gray-100 p-3 rounded-lg w-full focus:outline-none focus:shadow-outline"
             >
               Send Message
             </button>
           </div>
-        </div>
+        </form>
       </div>
     </div>
   );

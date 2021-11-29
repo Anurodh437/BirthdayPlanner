@@ -1,4 +1,3 @@
-import React from "react";
 import Dashboard from "./Dashboard/Dashboard";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Contact from "./Contact/Contact";
@@ -18,16 +17,16 @@ const AppContainer = () => {
           <Restaurants />
         </Route>
         <Route exact path="/gifts">
-          <Gifts/>
+          <Gifts />
         </Route>
         <Route exact path="/planBirthday">
           <Details />
         </Route>
-        <Route exact path="/contact">
-          <Contact/>
+        <Route exact path="/feedback">
+          <Contact />
         </Route>
         <Route exact path="/testimonials">
-          <Testimonial/>
+          <Testimonial />
         </Route>
       </Switch>
     </Router>

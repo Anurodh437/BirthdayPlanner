@@ -7,14 +7,14 @@ const Details = () => {
   const goToHome = () => {
     history.push("/dashboard");
   };
-  const goToContact = () => {
-    history.push("/contact");
+  const goToFeedback = () => {
+    history.push("/feedback");
   };
 
   const logout = async () => {
     await auth.signOut();
     localStorage.removeItem("loggedIn");
-    window.location.href = "/login";
+    window.location.href = "/";
   };
 
   const goToTestimonials = () => {
@@ -37,8 +37,8 @@ const Details = () => {
           <ul>
             <li onClick={goToHome}>Home</li>
             <li onClick={goToTestimonials}>Testimonials</li>
-            <li onClick={goToContact}>Contact</li>
-            <li onClick={logout}>Logout</li>
+            <li onClick={goToFeedback}>Feedback</li>
+            <li onClick={logout}>Sign Out</li>
             <img
               src="https://image.flaticon.com/icons/png/512/2922/2922510.png"
               alt=""
