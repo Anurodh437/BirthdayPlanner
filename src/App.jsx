@@ -47,7 +47,7 @@ function App() {
             "/dashboard",
             "/planBirthday",
             "/restaurants",
-            "/contact",
+            "/feedback",
             "/gifts",
             "/testimonials",
           ]}

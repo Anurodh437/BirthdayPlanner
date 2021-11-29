@@ -8,6 +8,7 @@ const SignUp = () => {
   const [error, setError] = useState("");
   const [email, setemail] = useState("");
   const [pass, setPass] = useState("");
+  const [name, setName] = useState("");
 
   const handleSignUp = useCallback(async (event) => {
     event.preventDefault();
@@ -45,12 +46,21 @@ const SignUp = () => {
           </div>
 
           <form onSubmit={handleSignUp} className="input_form">
+            <label htmlFor="name">Name</label>
+            <input
+              id="name"
+              name="name"
+              type="text"
+              placeholder="Enter Name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
             <label htmlFor="email">Email</label>
             <input
               id="email"
               name="email"
-              type="text"
-              placeholder="enter email"
+              type="email"
+              placeholder="Enter email"
               value={email}
               onChange={(e) => setemail(e.target.value)}
             />

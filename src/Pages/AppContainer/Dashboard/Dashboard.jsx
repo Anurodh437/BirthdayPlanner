@@ -37,8 +37,8 @@ const Dashboard = () => {
     } else window.location.href = "/planBirthday";
   };
 
-  const goToContact = () => {
-    history.push("/contact");
+  const goToFeedback = () => {
+    history.push("/feedback");
   };
 
   const goToTestimonials = () => {
@@ -48,7 +48,7 @@ const Dashboard = () => {
   const logout = async () => {
     await auth.signOut();
     localStorage.removeItem("loggedIn");
-    window.location.href = "/login";
+    window.location.href = "/";
   };
   return (
     <div className="body" style={{ backgroundColor: "#abf7ff" }}>
@@ -60,13 +60,13 @@ const Dashboard = () => {
         </h1>
         <div className="links">
           <ul>
-            <li onClick={goToTestimonials}>Testimonials</li>
-            <li onClick={goToContact}>Contact</li>
             <li onClick={goToPlanBirthday}>Plan Birthday</li>
+            <li onClick={goToTestimonials}>Testimonials</li>
+            <li onClick={goToFeedback}>Feedback</li>
             {user === null ? (
-              <li onClick={goToLogin}>Login</li>
+              <li onClick={goToLogin}>Register</li>
             ) : (
-              <li onClick={logout}>Logout</li>
+              <li onClick={logout}>Sign Out</li>
             )}
             <img
               src="https://image.flaticon.com/icons/png/512/2922/2922510.png"
