@@ -97,7 +97,8 @@ const Gifts = () => {
                         Tooltip content
                         <div className="tooltip-arrow" data-popper-arrow></div>
                       </div>
-                      <svg data-tooltip-target="tooltip-dark"
+                      <svg
+                        data-tooltip-target="tooltip-dark"
                         viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg"
                         className=" h-4 w-4 fill-current text-yellow-500 tooltip"

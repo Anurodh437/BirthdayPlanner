@@ -80,7 +80,7 @@ const Details = () => {
             </div>
           </a>
         </div>
-        <div className="w-96 linear-img" >
+        <div className="w-96 linear-img">
           <img
             src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
             alt=""
