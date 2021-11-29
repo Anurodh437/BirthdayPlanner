@@ -2,22 +2,38 @@ import React, { useState } from "react";
 // import { FaPhoneAlt } from "react-icons/fa";
 // import { IoMailOutline, IoLocationSharp } from "react-icons/io5";
 import Modal from "../../../components/Modal/Modal";
+import { database } from "../../../firebase";
+
 const Contact = () => {
   const [modal, setModal] = useState(false);
+  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [message, setMessage] = useState("");
 
-  console.log("modal ", modal);
+  // console.log("modal ", modal);
 
   const showModal = () => {
+    createEntry();
     setModal(!modal);
+  };
+
+  //   creating data in firestore
+  const createEntry = async () => {
+    try {
+      const res = await database.users.add({ name, email, message });
+      console.log("Added Data ", res);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
     <div className="bg-gray-800 text-gray-100 h-screen pt-4">
       <Modal show={modal} />
-      <div className="text-center w-full font-semibold text-4xl text-white tracking-widest">
-        Contact Us
+      <div className="text-center w-full font-semibold text-4xl text-white tracking-widest pb-3">
+        Feedback
         <br />
-        <p className="text-base text-white tracking-normal font-extralight">
+        <p className="text-xl text-white tracking-normal font-extralight">
           Have any questions? We'd love to here from you.
         </p>
       </div>
@@ -49,9 +65,9 @@ const Contact = () => {
                   y2="560.46"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop offset="0" stop-color="gray" stop-opacity="0.25" />
-                  <stop offset="0.54" stop-color="gray" stop-opacity="0.12" />
-                  <stop offset="1" stop-color="gray" stop-opacity="0.1" />
+                  <stop offset="0" stopColor="gray" stopOpacity="0.25" />
+                  <stop offset="0.54" stopColor="gray" stopOpacity="0.12" />
+                  <stop offset="1" stopColor="gray" stopOpacity="0.1" />
                 </linearGradient>
                 <pattern
                   id="ad310e25-2b04-44c8-bb7b-982389166780"
@@ -424,8 +440,8 @@ const Contact = () => {
                 transform="translate(-52 -162.63)"
                 fill="none"
                 stroke="#3f3d56"
-                stroke-miterlimit="10"
-                stroke-width="4"
+                strokeMiterlimit="10"
+                strokeWidth="4"
               />
               <path
                 d="M750.45,545.85a12.31,12.31,0,0,0-6.15-10.09l-2.76,5.45.09-6.6a12.31,12.31,0,1,0,8.82,11.24Z"
@@ -472,8 +488,8 @@ const Contact = () => {
                 transform="translate(-52 -162.63)"
                 fill="none"
                 stroke="#3f3d56"
-                stroke-miterlimit="10"
-                stroke-width="4"
+                strokeMiterlimit="10"
+                strokeWidth="4"
               />
               <path
                 d="M140.45,473.85a12.31,12.31,0,0,0-6.15-10.09l-2.76,5.45.09-6.6a12.31,12.31,0,1,0,8.82,11.24Z"
@@ -520,8 +536,8 @@ const Contact = () => {
                 transform="translate(-52 -162.63)"
                 fill="none"
                 stroke="#3f3d56"
-                stroke-miterlimit="10"
-                stroke-width="4"
+                strokeMiterlimit="10"
+                strokeWidth="4"
               />
               <path
                 d="M478.39,391.49a12.3,12.3,0,0,1,6.14-10.09l2.76,5.45-.08-6.6a12.62,12.62,0,0,1,4.05-.49,12.31,12.31,0,1,1-12.87,11.73Z"
@@ -728,7 +744,7 @@ const Contact = () => {
                 transform="translate(-52 -162.63)"
                 fill="none"
                 stroke="#000"
-                stroke-miterlimit="10"
+                strokeMiterlimit="10"
                 opacity="0.1"
               />
               <path
@@ -751,8 +767,8 @@ const Contact = () => {
                 transform="translate(-52 -162.63)"
                 fill="none"
                 stroke="#3f3d56"
-                stroke-miterlimit="10"
-                stroke-width="4"
+                strokeMiterlimit="10"
+                strokeWidth="4"
               />
               <path
                 d="M922.52,469.93a12.29,12.29,0,0,0-6.14-10.08l-2.76,5.45.08-6.6a12.08,12.08,0,0,0-4.05-.49,12.31,12.31,0,1,0,12.87,11.72Z"
@@ -799,8 +815,8 @@ const Contact = () => {
                 transform="translate(-52 -162.63)"
                 fill="none"
                 stroke="#3f3d56"
-                stroke-miterlimit="10"
-                stroke-width="4"
+                strokeMiterlimit="10"
+                strokeWidth="4"
               />
               <path
                 d="M1081.52,621.93a12.29,12.29,0,0,0-6.14-10.08l-2.76,5.45.08-6.6a12.08,12.08,0,0,0-4-.49,12.31,12.31,0,1,0,12.87,11.72Z"
@@ -998,6 +1014,8 @@ const Contact = () => {
               type="text"
               placeholder="Name"
               required
+              value={name}
+              onChange={(e) => setName(e.target.value)}
             />
           </div>
           <div className="mt-8">
@@ -1009,6 +1027,8 @@ const Contact = () => {
               type="email"
               required
               placeholder="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <div className="mt-8">
@@ -1019,6 +1039,8 @@ const Contact = () => {
               required
               placeholder="Type your message here"
               className="w-full h-32 bg-gray-300 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
             ></textarea>
           </div>
           <div className="mt-8">
