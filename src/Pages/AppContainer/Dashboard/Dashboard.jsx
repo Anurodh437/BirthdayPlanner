@@ -1,10 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Dashboard.scss";
 import mainImage from "../../../assets/image_processing20211110-13169-mniu50.png";
 import { useHistory } from "react-router";
+import { auth } from "../../../firebase";
 
 const Dashboard = () => {
   const history = useHistory();
+
+  const [user, setUser] = useState("");
+
+  useEffect(() => {
+    const unsub = auth.onAuthStateChanged((user) => setUser(user));
+
+    console.log("Dashboard UID ", user && user.uid);
+
+    user && localStorage.setItem("loggedIn", "yes");
+
+    // it will run when component unmounts like componentDidUnmount()
+    return () => {
+      unsub();
+    };
+  });
+
+  console.log("Dashboard User ", user);
+  const loggedIn = localStorage.getItem("loggedIn");
+  if (loggedIn === "yes" && !user) return <h1> Loading </h1>;
 
   const goToLogin = () => {
     // history.push("/login");
@@ -12,7 +32,9 @@ const Dashboard = () => {
   };
 
   const goToPlanBirthday = () => {
-    window.location.href = "/planBirthday";
+    if (user === null) {
+      window.location.href = "/login";
+    } else window.location.href = "/planBirthday";
   };
 
   const goToContact = () => {
@@ -23,6 +45,11 @@ const Dashboard = () => {
     history.push("/testimonials");
   };
 
+  const logout = async () => {
+    await auth.signOut();
+    localStorage.removeItem("loggedIn");
+    window.location.href = "/login";
+  };
   return (
     <div className="body" style={{ backgroundColor: "#abf7ff" }}>
       <header className="header">
@@ -36,7 +63,11 @@ const Dashboard = () => {
             <li onClick={goToTestimonials}>Testimonials</li>
             <li onClick={goToContact}>Contact</li>
             <li onClick={goToPlanBirthday}>Plan Birthday</li>
-            <li onClick={goToLogin}>Login</li>
+            {user === null ? (
+              <li onClick={goToLogin}>Login</li>
+            ) : (
+              <li onClick={logout}>Logout</li>
+            )}
             <img
               src="https://image.flaticon.com/icons/png/512/2922/2922510.png"
               alt=""
