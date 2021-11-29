@@ -114,14 +114,10 @@
 }
 
 .card_container {
-  // width: 100%;
-  // height: 100%;
-  margin-top: 80px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-evenly;
+  align-items: flex-end;
 }
 
 .linear-img {
@@ -142,15 +138,13 @@
 
 .card_head {
   color: #262626;
-  font-size: 17px;
   line-height: 24px;
-  font-weight: 700;
   margin-bottom: 4px;
 }
 
 .small {
-  font-size: 17px;
-  font-weight: 400;
+  font-size: 28px;
+  font-weight: 600;
   line-height: 20px;
   color: #666666;
 
@@ -183,10 +177,10 @@
 .gift_card1 {
   display: block;
   position: relative;
-  max-width: 262px;
+  max-width: 282px;
   background-color: #f2f8f9;
   border-radius: 4px;
-  padding: 82px 40px;
+  padding: 62px 40px;
   margin: 20px;
   text-decoration: none;
   z-index: 0;
@@ -228,10 +222,10 @@
 .gift_card2 {
   display: block;
   position: relative;
-  max-width: 262px;
+  max-width: 282px;
   background-color: #f2f8f9;
   border-radius: 4px;
-  padding: 82px 40px;
+  padding: 62px 40px;
   margin: 20px;
   text-decoration: none;
   z-index: 0;
