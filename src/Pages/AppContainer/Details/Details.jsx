@@ -1,6 +1,7 @@
 import { useHistory } from "react-router";
 import "./Details.scss";
-import { auth } from "../../../firebase";
+import { auth, database } from "../../../firebase";
+import { useCallback, useEffect } from "react";
 
 const Details = () => {
   const history = useHistory();
@@ -22,21 +23,54 @@ const Details = () => {
     history.push("/testimonials");
   };
 
-  // //   reading data from firestore
-  // useEffect(() => {
-  //   async function fetchData() {
-  //     // to get data from firebase collection by uId
-  //     const response = await database.form_Data.doc(uID).get();
-  //     console.log("Form Data by ID", response.data());
+  //creating Form data in firestore
+  const createEntry = useCallback(async (event) => {
+    event.preventDefault();
 
-  //     //getting form_Data in the collection
-  //     const data = await database.form_Data.get();
-  //     console.log("Form Data");
-  //     data.forEach((each) => console.log(each.data()));
+    const {
+      name,
+      email,
+      birth_date,
+      age,
+      phone_number,
+      party_date,
+      party_time,
+      Venue_details,
+    } = event.target.elements;
+    try {
+      const data = {
+        name: name.value,
+        email: email.value,
+        birth_date: birth_date.value,
+        age: age.value,
+        phone_number: phone_number.value,
+        party_date: party_date.value,
+        party_time: party_time.value,
+        Venue_details: Venue_details.value,
+      };
 
-  //   }
-  //   fetchData();
-  // }, []);
+      const res = await database.form_Data.add(data);
+      console.log("Form Data Recorded");
+      console.log(res);
+    } catch (error) {
+      console.log(error);
+    }
+  }, []);
+
+  //   reading data from firestore
+  useEffect(() => {
+    async function fetchData() {
+      // to get data from firebase collection by uId
+      const response = await database.form_Data.doc().get();
+      console.log("Form Data by ID", response.data());
+
+      //getting form_Data in the collection
+      const data = await database.form_Data.get();
+      console.log("Form Data");
+      data.forEach((each) => console.log(each.data()));
+    }
+    fetchData();
+  }, []);
 
   return (
     <div className="body">
@@ -72,9 +106,12 @@ const Details = () => {
                 <h2 className="text-left text-3xl font-extrabold text-white">
                   Fill the Form
                 </h2>
-                <img src="https://img.icons8.com/external-sbts2018-flat-sbts2018/58/000000/external-cake-fathers-day-sbts2018-flat-sbts2018.png"alt=""/>
+                <img
+                  src="https://img.icons8.com/external-sbts2018-flat-sbts2018/58/000000/external-cake-fathers-day-sbts2018-flat-sbts2018.png"
+                  alt=""
+                />
               </div>
-              <form className="" action="#" method="POST">
+              <form className="" onSubmit={createEntry}>
                 <div className="">
                   <div className="my-3">
                     <label htmlFor="name" className="text-white font-medium">
@@ -105,7 +142,12 @@ const Details = () => {
                   </div>
                   <div className="flex justify-between">
                     <div className="flex flex-col mt-4">
-                      <label className="text-white font-medium" htmlFor="birth_date">Birth Date</label>
+                      <label
+                        className="text-white font-medium"
+                        htmlFor="birth_date"
+                      >
+                        Birth Date
+                      </label>
                       <input
                         id="birth_date"
                         name="birth_date"
@@ -115,7 +157,9 @@ const Details = () => {
                       />
                     </div>
                     <div className="flex flex-col mt-4">
-                      <label className="text-white font-medium" htmlFor="age">Age</label>
+                      <label className="text-white font-medium" htmlFor="age">
+                        Age
+                      </label>
                       <input
                         id="age"
                         name="age"
@@ -126,16 +170,29 @@ const Details = () => {
                     </div>
                   </div>
                   <div className="flex mt-4 space-x-2">
-                      <label className="text-white font-medium" htmlFor="phone">Phone Number</label>
-                      <input type="text" placeholder="Phone" className="'w-full bg-gray-300"  />
-                    </div>
+                    <label className="text-white font-medium" htmlFor="phone">
+                      Phone Number
+                    </label>
+                    <input
+                      type="text"
+                      id="phone_number"
+                      name="phone_number"
+                      placeholder="Phone"
+                      className="'w-full bg-gray-300"
+                    />
+                  </div>
                   <div>
                     <h1 className="mt-6 text-3xl font-medium text-center text-white">
                       Party Details
                     </h1>
                     <div className="flex justify-between">
                       <div className="flex flex-col">
-                        <label className="text-white font-medium" htmlFor="party_date">Date of Party</label>
+                        <label
+                          className="text-white font-medium"
+                          htmlFor="party_date"
+                        >
+                          Date of Party
+                        </label>
                         <input
                           id="party_date"
                           name="party_date"
@@ -145,7 +202,12 @@ const Details = () => {
                         />
                       </div>
                       <div className="flex flex-col">
-                        <label className="text-white font-medium" htmlFor="party_time">Time of Party</label>
+                        <label
+                          className="text-white font-medium"
+                          htmlFor="party_time"
+                        >
+                          Time of Party
+                        </label>
                         <input
                           className="w-32 bg-gray-300"
                           id="party_time"
@@ -156,7 +218,12 @@ const Details = () => {
                       </div>
                     </div>
                     <div className="mt-4">
-                      <label className="text-white font-medium" htmlFor="Venue_detials">Venue Details</label>
+                      <label
+                        className="text-white font-medium"
+                        htmlFor="Venue_detials"
+                      >
+                        Venue Details
+                      </label>
                       <textarea
                         className="rounded p-1 bg-gray-300"
                         placeholder="Venue..."
@@ -193,7 +260,9 @@ const Details = () => {
             </div>
           </a>
           <a className="gift_card2" href="/restaurants">
-            <h3 className="card_head font-semibold text-xl">Restaurants & Hotels</h3>
+            <h3 className="card_head font-semibold text-xl">
+              Restaurants & Hotels
+            </h3>
             <p className="small">
               Find some of the best restaurants near your place to chill out
               with your family and friends on birthdayys.
