@@ -11,7 +11,7 @@ export const getPlacesData = async (type, sw, ne) => {
         tr_latitude: ne.lat,
       },
       headers: {
-        'x-rapidapi-key': '3152b921b8msh81093b0bb42ea86p13d543jsn0c35300706f5',
+        'x-rapidapi-key': 'fe35280735msh2652c6f5a1945efp164cfcjsn2e7cb68ac396',
         'x-rapidapi-host': 'travel-advisor.p.rapidapi.com',
       },
     });
