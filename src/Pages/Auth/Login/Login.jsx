@@ -1,4 +1,3 @@
-import React from "react";
 import { useCallback, useState } from "react";
 import bgimage from "../../../assets/rightbg.jpg";
 import logoimage from "../../../assets/1103-confetti-outline (2).gif";
@@ -9,7 +8,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
 
-  console.log("User ", email, pass);
+  // console.log("User ", email, pass);
   const handleLogin = useCallback(async (event) => {
     event.preventDefault();
     setError("");

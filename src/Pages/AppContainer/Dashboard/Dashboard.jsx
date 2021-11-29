@@ -12,7 +12,7 @@ const Dashboard = () => {
   useEffect(() => {
     const unsub = auth.onAuthStateChanged((user) => setUser(user));
 
-    console.log("Dashboard UID ", user && user.uid);
+    // console.log("Dashboard UID ", user && user.uid);
 
     user && localStorage.setItem("loggedIn", "yes");
 
@@ -22,7 +22,7 @@ const Dashboard = () => {
     };
   });
 
-  console.log("Dashboard User ", user);
+  // console.log("Dashboard User ", user);
   const loggedIn = localStorage.getItem("loggedIn");
   if (loggedIn === "yes" && !user) return <h1> Loading </h1>;
 
