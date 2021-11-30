@@ -51,6 +51,10 @@ function App() {
             "/feedback",
             "/gifts",
             "/testimonials",
+            "/gifts",
+            "/gifts/mugs",
+            "/gifts/bouquet",
+            "/gifts/bdaykit",
           ]}
         >
           <AppContainer />
