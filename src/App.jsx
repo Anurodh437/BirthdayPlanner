@@ -55,6 +55,7 @@ function App() {
             "/gifts/mugs",
             "/gifts/bouquet",
             "/gifts/bdaykit",
+            "/formData",
           ]}
         >
           <AppContainer />

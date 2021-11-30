@@ -5,6 +5,7 @@ import Restaurants from "./Restaurants/Restaurants";
 import Details from "./Details/Details";
 import Gifts from "./Gifts/Gifts";
 import Testimonial from "./Testimonial/Testimonial";
+import FormData from "./FormData/FormData";
 const AppContainer = () => {
   return (
     <Router>
@@ -29,6 +30,9 @@ const AppContainer = () => {
         </Route>
         <Route exact path="/testimonials">
           <Testimonial />
+        </Route>
+        <Route exact path="/formData">
+          <FormData />
         </Route>
       </Switch>
     </Router>
