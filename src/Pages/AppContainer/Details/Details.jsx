@@ -1,6 +1,7 @@
 import { useHistory } from "react-router";
 import "./Details.scss";
-import { auth } from "../../../firebase";
+import { auth, database } from "../../../firebase";
+import { useCallback, useEffect } from "react";
 
 const Details = () => {
   const history = useHistory();
@@ -21,6 +22,55 @@ const Details = () => {
   const goToTestimonials = () => {
     history.push("/testimonials");
   };
+
+  //creating Form data in firestore
+  const createEntry = useCallback(async (event) => {
+    event.preventDefault();
+
+    const {
+      name,
+      email,
+      birth_date,
+      age,
+      phone_number,
+      party_date,
+      party_time,
+      Venue_details,
+    } = event.target.elements;
+    try {
+      const data = {
+        name: name.value,
+        email: email.value,
+        birth_date: birth_date.value,
+        age: age.value,
+        phone_number: phone_number.value,
+        party_date: party_date.value,
+        party_time: party_time.value,
+        Venue_details: Venue_details.value,
+      };
+
+      const res = await database.form_Data.add(data);
+      console.log("Form Data Recorded");
+      console.log(res);
+    } catch (error) {
+      console.log(error);
+    }
+  }, []);
+
+  //   reading data from firestore
+  useEffect(() => {
+    async function fetchData() {
+      // to get data from firebase collection by uId
+      const response = await database.form_Data.doc().get();
+      console.log("Form Data by ID", response.data());
+
+      //getting form_Data in the collection
+      const data = await database.form_Data.get();
+      console.log("Form Data");
+      data.forEach((each) => console.log(each.data()));
+    }
+    fetchData();
+  }, []);
 
   return (
     <div className="body">
@@ -61,7 +111,7 @@ const Details = () => {
                   alt=""
                 />
               </div>
-              <form className="" action="#" method="POST">
+              <form className="" onSubmit={createEntry}>
                 <div className="flex justify-between mt-3 space-x-10">
                   <div className="w-full">
                     <label htmlFor="name" className="text-white font-medium">

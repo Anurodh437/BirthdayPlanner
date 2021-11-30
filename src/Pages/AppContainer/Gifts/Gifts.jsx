@@ -46,7 +46,7 @@ const Gifts = () => {
           <div className="flex flex-wrap -mx-4">
             {/* card1 mapping */}
             {result1.map((data, index) => {
-              console.log("Card ", data);
+              // console.log("Card ", data);
               return (
                 <div
                   key={index}
@@ -144,7 +144,7 @@ const Gifts = () => {
             })}
             {/* card2 mapping */}
             {result2.map((data, index) => {
-              console.log("Card ", data);
+              // console.log("Card ", data);
               return (
                 <div
                   key={index}
@@ -234,7 +234,7 @@ const Gifts = () => {
 
             {/* card3 mapping */}
             {result3.map((data, index) => {
-              console.log("Card ", data);
+              // console.log("Card ", data);
               return (
                 <div
                   key={index}
@@ -323,7 +323,7 @@ const Gifts = () => {
 
             {/* card4 mapping */}
             {result4.map((data, index) => {
-              console.log("Card ", data);
+              // console.log("Card ", data);
               return (
                 <div
                   key={index}

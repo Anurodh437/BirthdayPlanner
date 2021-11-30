@@ -1,11 +1,11 @@
-import Dashboard from "./Dashboard/Dashboard";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Dashboard from "./Dashboard/Dashboard";
 import Contact from "./Contact/Contact";
-
 import Restaurants from "./Restaurants/Restaurants";
 import Details from "./Details/Details";
 import Gifts from "./Gifts/Gifts";
 import Testimonial from "./Testimonial/Testimonial";
+
 const AppContainer = () => {
   return (
     <Router>
