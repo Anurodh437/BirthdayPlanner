@@ -118,6 +118,7 @@
   flex-direction: column;
   flex-wrap: wrap;
   align-items: flex-end;
+  justify-content: flex-start;
 }
 
 .linear-img {
@@ -180,8 +181,9 @@
   max-width: 282px;
   background-color: #f2f8f9;
   border-radius: 4px;
-  padding: 62px 40px;
-  margin: 20px;
+  padding: 82px 40px;
+  margin-left: 20px;
+  margin-right: 20px;
   text-decoration: none;
   z-index: 0;
   overflow: hidden;
@@ -225,7 +227,7 @@
   max-width: 282px;
   background-color: #f2f8f9;
   border-radius: 4px;
-  padding: 62px 40px;
+  padding: 82px 40px;
   margin: 20px;
   text-decoration: none;
   z-index: 0;

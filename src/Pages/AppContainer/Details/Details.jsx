@@ -99,11 +99,11 @@ const Details = () => {
       {/* Notes Card Container */}
       <div className="flex justify-evenly">
         {/* left container */}
-        <div className="bg-black bg-opacity-50 w-5/12 rounded-md py-2 mb-2">
-          <div className="min-h-full flex items-start justify-center px-4 sm:px-6 lg:px-8">
-            <div className="max-w-md w-full">
-              <div className="flex justify-between items-center ">
-                <h2 className="text-left text-3xl font-extrabold text-white">
+        <div className="bg-black bg-opacity-50 w-5/12 rounded-md py-2 mb-4">
+          <div className="flex items-start justify-center px-4 sm:px-2 lg:px-8">
+            <div className="w-full">
+              <div className="flex justify-between items-center p-4">
+                <h2 className="text-left text-4xl font-extrabold text-white">
                   Fill the Form
                 </h2>
                 <img
@@ -112,8 +112,8 @@ const Details = () => {
                 />
               </div>
               <form className="" onSubmit={createEntry}>
-                <div className="">
-                  <div className="my-3">
+                <div className="flex justify-between mt-3 space-x-10">
+                  <div className="w-full">
                     <label htmlFor="name" className="text-white font-medium">
                       Name
                     </label>
@@ -127,7 +127,7 @@ const Details = () => {
                       placeholder="Name"
                     />
                   </div>
-                  <div className="">
+                  <div className="w-full">
                     <label htmlFor="email" className="text-white font-medium">
                       Email
                     </label>
@@ -140,105 +140,103 @@ const Details = () => {
                       placeholder="email"
                     />
                   </div>
-                  <div className="flex justify-between">
-                    <div className="flex flex-col mt-4">
-                      <label
-                        className="text-white font-medium"
-                        htmlFor="birth_date"
-                      >
-                        Birth Date
-                      </label>
-                      <input
-                        id="birth_date"
-                        name="birth_date"
-                        type="date"
-                        required
-                        className="w-full bg-gray-300"
-                      />
-                    </div>
-                    <div className="flex flex-col mt-4">
-                      <label className="text-white font-medium" htmlFor="age">
-                        Age
-                      </label>
-                      <input
-                        id="age"
-                        name="age"
-                        type="number"
-                        required
-                        className="w-32 bg-gray-300"
-                      />
-                    </div>
+                </div>
+                <div className="flex justify-between mt-4 w-full">
+                  <div className="flex flex-col">
+                    <label
+                      className="text-white font-medium"
+                      htmlFor="birth_date"
+                    >
+                      Birth Date
+                    </label>
+                    <input
+                      id="birth_date"
+                      name="birth_date"
+                      type="date"
+                      required
+                      className="w-full lg:w-52 bg-gray-300 rounded"
+                    />
                   </div>
-                  <div className="flex mt-4 space-x-2">
+                  <div className="flex flex-col">
+                    <label className="text-white font-medium" htmlFor="age">
+                      Age
+                    </label>
+                    <input
+                      id="age"
+                      name="age"
+                      type="number"
+                      required
+                      className="w-24 rounded bg-gray-300"
+                    />
+                  </div>
+                  <div className="flex flex-col">
                     <label className="text-white font-medium" htmlFor="phone">
                       Phone Number
                     </label>
                     <input
                       type="text"
-                      id="phone_number"
-                      name="phone_number"
                       placeholder="Phone"
-                      className="'w-full bg-gray-300"
+                      className="'w-full lg:w-52 rounded bg-gray-300"
                     />
-                  </div>
-                  <div>
-                    <h1 className="mt-6 text-3xl font-medium text-center text-white">
-                      Party Details
-                    </h1>
-                    <div className="flex justify-between">
-                      <div className="flex flex-col">
-                        <label
-                          className="text-white font-medium"
-                          htmlFor="party_date"
-                        >
-                          Date of Party
-                        </label>
-                        <input
-                          id="party_date"
-                          name="party_date"
-                          type="date"
-                          required
-                          className="w-full bg-gray-300"
-                        />
-                      </div>
-                      <div className="flex flex-col">
-                        <label
-                          className="text-white font-medium"
-                          htmlFor="party_time"
-                        >
-                          Time of Party
-                        </label>
-                        <input
-                          className="w-32 bg-gray-300"
-                          id="party_time"
-                          name="party_time"
-                          type="time"
-                          required
-                        />
-                      </div>
-                    </div>
-                    <div className="mt-4">
-                      <label
-                        className="text-white font-medium"
-                        htmlFor="Venue_detials"
-                      >
-                        Venue Details
-                      </label>
-                      <textarea
-                        className="rounded p-1 bg-gray-300"
-                        placeholder="Venue..."
-                        name="Venue_details"
-                        id="Venue_details"
-                        cols="35"
-                        rows="3"
-                      ></textarea>
-                    </div>
                   </div>
                 </div>
                 <div>
+                  <h1 className="mt-8 text-4xl font-medium text-center text-white">
+                    Party Details
+                  </h1>
+                  <div className="flex justify-between space-x-10 mt-4">
+                    <div className="flex flex-col w-full">
+                      <label
+                        className="text-white font-medium"
+                        htmlFor="party_date"
+                      >
+                        Date of Party
+                      </label>
+                      <input
+                        id="party_date"
+                        name="party_date"
+                        type="date"
+                        required
+                        className="w-full rounded bg-gray-300"
+                      />
+                    </div>
+                    <div className="flex flex-col w-full">
+                      <label
+                        className="text-white font-medium"
+                        htmlFor="party_time"
+                      >
+                        Time of Party
+                      </label>
+                      <input
+                        className="w-full rounded bg-gray-300"
+                        id="party_time"
+                        name="party_time"
+                        type="time"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div className="mt-4 flex flex-col">
+                    <label
+                      className="text-white font-medium"
+                      htmlFor="Venue_detials"
+                    >
+                      Venue Details
+                    </label>
+                    <textarea
+                      className="rounded p-1 w-full bg-gray-300"
+                      placeholder="Venue..."
+                      name="Venue_details"
+                      id="Venue_details"
+                      cols="48"
+                      rows="3"
+                    ></textarea>
+                  </div>
+                </div>
+                <div className="flex justify-center mt-6">
                   <button
                     type="submit"
-                    className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                    className="group relative sm:w-full lg:w-48 flex justify-center py-1 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                   >
                     Submit
                   </button>
