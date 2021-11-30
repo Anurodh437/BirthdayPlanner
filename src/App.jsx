@@ -18,7 +18,7 @@ function App() {
   useEffect(() => {
     const unsub = auth.onAuthStateChanged((user) => setUser(user));
 
-    console.log("UID ", user && user.uid);
+    // console.log("UID ", user && user.uid);
 
     user && localStorage.setItem("loggedIn", "yes");
 

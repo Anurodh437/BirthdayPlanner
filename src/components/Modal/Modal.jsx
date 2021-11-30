@@ -6,7 +6,7 @@ const Modal = (props) => {
   let disp = " hidden ";
   if (props.show === true) disp = "block";
 
-  console.log(props.show, disp, props.link);
+  // console.log(props.show, disp, props.link);
 
   const history = useHistory();
 
@@ -50,10 +50,7 @@ const Modal = (props) => {
                   Thank You.
                 </h3>
                 <div className="mt-2">
-                  <p className="text-sm text-gray-500">
-                    {props.message}
-                   
-                  </p>
+                  <p className="text-sm text-gray-500">{props.message}</p>
                 </div>
               </div>
             </div>
