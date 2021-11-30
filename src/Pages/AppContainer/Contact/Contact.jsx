@@ -31,7 +31,11 @@ const Contact = () => {
 
   return (
     <div className="bg-gray-800 text-gray-100 h-screen pt-4">
-      <Modal show={modal} />
+      <Modal
+        show={modal}
+        link="dashboard"
+        message=" Thank you for contacting with us. We will get in touch with you as sson as possible. <br /> Enjoy your day 🎉."
+      />
       <div className="text-center w-full font-semibold text-4xl text-white tracking-widest pb-3">
         Feedback
         <br />

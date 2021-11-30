@@ -17,7 +17,7 @@
   // min-height: 300px;
   box-shadow: 4px 8px 28px rgba(39, 44, 49, 0.1),
     1px 3px 8px rgba(39, 44, 49, 0.075);
-  margin: 15vh auto;
+  // margin: 15vh auto;
   overflow: hidden !important;
   &:hover {
     box-shadow: 0 0 1px rgba(39, 44, 49, 0.2), 0 3px 16px rgba(39, 44, 49, 0.25);
@@ -74,7 +74,6 @@
   box-shadow: 0 0 1px rgba(#ac1c38, 0.1), 0 2px 6px rgba(#ac1c38, 0.175);
   margin: 3vh 2px 2.5vh;
   padding: 6px 8px;
-  cursor: pointer;
   z-index: 9;
   &.python {
     background: #2a9d5a;

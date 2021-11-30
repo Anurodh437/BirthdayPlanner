@@ -6,10 +6,12 @@ const Modal = (props) => {
   let disp = " hidden ";
   if (props.show === true) disp = "block";
 
-  console.log(props.show, disp);
+  console.log(props.show, disp, props.link);
+
   const history = useHistory();
-  const goToDashboard = () => {
-    history.push("/dashboard");
+
+  const goToPage = () => {
+    history.push(`/${props.link}`);
   };
   return (
     <div
@@ -49,9 +51,8 @@ const Modal = (props) => {
                 </h3>
                 <div className="mt-2">
                   <p className="text-sm text-gray-500">
-                    Thank you for contacting with us. We will get in touch with
-                    you as sson as possible. <br />
-                    Enjoy your day 🎉.
+                    {props.message}
+                   
                   </p>
                 </div>
               </div>
@@ -60,7 +61,7 @@ const Modal = (props) => {
           <div className="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
             <button
               type="button"
-              onClick={goToDashboard}
+              onClick={goToPage}
               className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm"
             >
               Close

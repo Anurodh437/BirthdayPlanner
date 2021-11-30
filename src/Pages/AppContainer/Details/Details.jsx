@@ -1,8 +1,8 @@
 import { useHistory } from "react-router";
 import "./Details.scss";
 import { auth, database } from "../../../firebase";
-import { useCallback, useEffect } from "react";
-
+import { useCallback, useState } from "react";
+import Modal from "../../../components/Modal/Modal";
 const Details = () => {
   const history = useHistory();
 
@@ -23,9 +23,6 @@ const Details = () => {
     history.push("/testimonials");
   };
 
-  const goToFormData = () => {
-    history.push("/formData");
-  };
   //creating Form data in firestore
   const createEntry = useCallback(async (event) => {
     event.preventDefault();
@@ -55,35 +52,28 @@ const Details = () => {
       const res = await database.form_Data.add(data);
       console.log("Form Data Recorded");
       console.log(res);
+      setModal(!modal);
     } catch (error) {
       console.log(error);
     }
-  }, []);
-
-  //   reading data from firestore
-  useEffect(() => {
-    async function fetchData() {
-      // to get data from firebase collection by uId
-      const response = await database.form_Data.doc().get();
-      console.log("Form Data by ID", response.data());
-
-      //getting form_Data in the collection
-      const data = await database.form_Data.get();
-      console.log("Form Data");
-      data.forEach((each) => console.log(each.data()));
-    }
-    fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const disablePrevdate = () => {
     return new Date().toLocaleDateString().split("/").reverse().join("-");
   };
+  const [modal, setModal] = useState(false);
 
   return (
     <div className="body">
       <div className="bg"></div>
       <div className="bg bg2"></div>
       <div className="bg bg3"></div>
+      <Modal
+        show={modal}
+        link="formData"
+        message="Your details have been recorded."
+      />
       <header className="header">
         <h1 className="logo">
           <a href="/dashboard">BirthdayPlanner</a>
@@ -97,8 +87,7 @@ const Details = () => {
             <img
               src="https://image.flaticon.com/icons/png/512/2922/2922510.png"
               alt=""
-              className="profile cursor-pointer border-4 hover:border-black"
-              onClick={goToFormData}
+              className="profile"
             />
           </ul>
         </div>
@@ -181,8 +170,10 @@ const Details = () => {
                       Phone Number
                     </label>
                     <input
-                      type="text"
+                      type="number"
                       placeholder="Phone"
+                      id="phone_number"
+                      name="phone_number"
                       className="'w-full lg:w-52 rounded bg-gray-300"
                     />
                   </div>
