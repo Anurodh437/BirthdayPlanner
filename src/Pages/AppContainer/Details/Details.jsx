@@ -49,11 +49,11 @@ const Details = () => {
       {/* Notes Card Container */}
       <div className="flex justify-evenly">
         {/* left container */}
-        <div className="bg-black bg-opacity-50 w-5/12 rounded-md py-2 mb-2">
+        <div className="bg-black bg-opacity-50 w-5/12 rounded-md py-2 mb-4">
           <div className="flex items-start justify-center px-4 sm:px-2 lg:px-8">
             <div className="w-full">
-              <div className="flex justify-between items-center ">
-                <h2 className="text-left text-3xl font-extrabold text-white">
+              <div className="flex justify-between items-center p-4">
+                <h2 className="text-left text-4xl font-extrabold text-white">
                   Fill the Form
                 </h2>
                 <img
@@ -131,11 +131,11 @@ const Details = () => {
                   </div>
                 </div>
                 <div>
-                  <h1 className="mt-10 text-3xl font-medium text-center text-white">
+                  <h1 className="mt-8 text-4xl font-medium text-center text-white">
                     Party Details
                   </h1>
-                  <div className="flex justify-around">
-                    <div className="flex flex-col">
+                  <div className="flex justify-between space-x-10 mt-4">
+                    <div className="flex flex-col w-full">
                       <label
                         className="text-white font-medium"
                         htmlFor="party_date"
@@ -147,10 +147,10 @@ const Details = () => {
                         name="party_date"
                         type="date"
                         required
-                        className="w-full bg-gray-300"
+                        className="w-full rounded bg-gray-300"
                       />
                     </div>
-                    <div className="flex flex-col">
+                    <div className="flex flex-col w-full">
                       <label
                         className="text-white font-medium"
                         htmlFor="party_time"
@@ -158,7 +158,7 @@ const Details = () => {
                         Time of Party
                       </label>
                       <input
-                        className="w-32 bg-gray-300"
+                        className="w-full rounded bg-gray-300"
                         id="party_time"
                         name="party_time"
                         type="time"
@@ -166,7 +166,7 @@ const Details = () => {
                       />
                     </div>
                   </div>
-                  <div className="mt-4">
+                  <div className="mt-4 flex flex-col">
                     <label
                       className="text-white font-medium"
                       htmlFor="Venue_detials"
@@ -174,19 +174,19 @@ const Details = () => {
                       Venue Details
                     </label>
                     <textarea
-                      className="rounded p-1 bg-gray-300"
+                      className="rounded p-1 w-full bg-gray-300"
                       placeholder="Venue..."
                       name="Venue_details"
                       id="Venue_details"
-                      cols="35"
+                      cols="48"
                       rows="3"
                     ></textarea>
                   </div>
                 </div>
-                <div className="flex justify-center">
+                <div className="flex justify-center mt-6">
                   <button
                     type="submit"
-                    className="group relative sm:w-full lg:w-96 flex justify-center py-1 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                    className="group relative sm:w-full lg:w-48 flex justify-center py-1 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                   >
                     Submit
                   </button>
