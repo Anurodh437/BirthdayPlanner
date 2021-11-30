@@ -72,6 +72,10 @@ const Details = () => {
     fetchData();
   }, []);
 
+  const disablePrevdate = () => {
+    return new Date().toLocaleDateString().split("/").reverse().join("-");
+  };
+
   return (
     <div className="body">
       <div className="bg"></div>
@@ -121,7 +125,6 @@ const Details = () => {
                       id="name"
                       name="name"
                       type="text"
-                      autoComplete="email"
                       required
                       className="bg-gray-300 text-base relative block w-full px-2 py-1 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                       placeholder="Name"
@@ -198,6 +201,7 @@ const Details = () => {
                         type="date"
                         required
                         className="w-full rounded bg-gray-300"
+                        min={disablePrevdate()}
                       />
                     </div>
                     <div className="flex flex-col w-full">
