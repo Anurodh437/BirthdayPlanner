@@ -10,6 +10,7 @@ import Authpage from "./Pages/Auth/AuthPage";
 import AppContainer from "./Pages/AppContainer/AppContainer";
 import { useState, useEffect } from "react";
 import { auth } from "./firebase";
+import Loader from "./components/Loader/Loader";
 
 function App() {
   const [user, setUser] = useState("");
@@ -29,7 +30,7 @@ function App() {
 
   // console.log(user);
   const loggedIn = localStorage.getItem("loggedIn");
-  if (loggedIn === "yes" && !user) return <h1> Loading </h1>;
+  if (loggedIn === "yes" && !user) return <Loader />;
 
   return (
     <Router>
