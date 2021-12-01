@@ -12,7 +12,7 @@ const GiftSuggest = () => {
           onClick={() => setActive("photo")}
           className={
             " flex flex-row w-full items-center justify-center space-x-1 p-2" +
-            (active === "photo" ? " bg-gray-500  border-2 border-black " : " ")
+            (active === "photo" ? " bg-gray-500  border-2 border-white " : " ")
           }
         >
           <div className="font-semibold text-base text-white">Photo Frames</div>
@@ -23,7 +23,7 @@ const GiftSuggest = () => {
           className={
             " flex flex-row items-center justify-center space-x-1 p-2 w-full" +
             (active === "mugs"
-              ? " bg-gray-500 border-2 text-black border-black "
+              ? " bg-gray-500 border-2 text-black border-white "
               : "  ")
           }
         >
@@ -48,7 +48,7 @@ const GiftSuggest = () => {
           onClick={() => setActive("bdaykit")}
           className={
             " flex flex-row items-center justify-center space-x-1 p-2 w-full" +
-            (active === "bdaykit" ? " bg-gray-500  border-2 border-black " : "")
+            (active === "bdaykit" ? " bg-gray-500  border-2 border-white " : "")
           }
         >
           <div className="font-semibold text-base text-white">Birthday Kit</div>

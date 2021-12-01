@@ -1,6 +1,5 @@
-import React, { useState } from "react";
-// import { FaPhoneAlt } from "react-icons/fa";
-// import { IoMailOutline, IoLocationSharp } from "react-icons/io5";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import Modal from "../../../components/Modal/Modal";
 import { database } from "../../../firebase";
 
@@ -30,18 +29,42 @@ const Contact = () => {
   };
 
   return (
-    <div className="bg-gray-800 text-gray-100 h-screen pt-4">
-      <Modal
-        show={modal}
-        link="dashboard"
-        message=" Thank you for contacting with us. We will get in touch with you as sson as possible. <br /> Enjoy your day 🎉."
-      />
-      <div className="text-center w-full font-semibold text-4xl text-white tracking-widest pb-3">
-        Feedback
-        <br />
-        <p className="text-xl text-white tracking-normal font-extralight">
-          Have any questions? We'd love to here from you.
-        </p>
+    <div className="bg-gray-800 text-gray-100 h-screen pt-2">
+      <Modal show={modal} />
+      <div className="flex justify-start space-x-96">
+        <div className="p-6 ">
+          <Link
+            to="/dashboard"
+            className="flex w-20 px-3 justify-center py-1 bg-gray-400"
+          >
+            <span className="mr-1">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15 19l-7-7 7-7"
+                />
+              </svg>
+            </span>
+            <span>Back</span>
+          </Link>
+        </div>
+        <div>
+          <p className="text-center w-full font-semibold text-4xl text-white tracking-widest">
+            Feedback
+          </p>
+          <br />
+          <p className="-mt-4 text-xl text-center w-full text-white tracking-normal font-extralight">
+            Have any questions? We'd love to here from you.
+          </p>
+        </div>
       </div>
       <div className="max-w-screen-xl mt-5 px-8 grid gap-8 grid-cols-1 md:grid-cols-2 md:px-12 lg:px-16 xl:px-32 py-16 mx-auto bg-gray-100 text-gray-900 rounded-lg shadow-lg">
         <div className="flex flex-col justify-between">
@@ -49,10 +72,6 @@ const Contact = () => {
             <h2 className="text-4xl lg:text-5xl font-bold leading-tight">
               Lets talk about everything!
             </h2>
-            {/* <div className="text-gray-700 mt-8">
-              Hate forms? Send us an <span className="underline">email</span>{" "}
-              instead.
-            </div> */}
           </div>
           <div className="mt-8 text-center">
             <svg
