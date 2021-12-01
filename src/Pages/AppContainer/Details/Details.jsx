@@ -1,8 +1,8 @@
 import { useHistory } from "react-router";
 import "./Details.scss";
 import { auth, database } from "../../../firebase";
-import { useCallback, useEffect } from "react";
-
+import { useCallback, useState } from "react";
+import Modal from "../../../components/Modal/Modal";
 const Details = () => {
   const history = useHistory();
 
@@ -23,6 +23,9 @@ const Details = () => {
     history.push("/testimonials");
   };
 
+  const goToFormData = () => {
+    history.push("/formData");
+  };
   //creating Form data in firestore
   const createEntry = useCallback(async (event) => {
     event.preventDefault();
@@ -52,31 +55,28 @@ const Details = () => {
       const res = await database.form_Data.add(data);
       console.log("Form Data Recorded");
       console.log(res);
+      setModal(!modal);
     } catch (error) {
       console.log(error);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  //   reading data from firestore
-  useEffect(() => {
-    async function fetchData() {
-      // to get data from firebase collection by uId
-      const response = await database.form_Data.doc().get();
-      console.log("Form Data by ID", response.data());
-
-      //getting form_Data in the collection
-      const data = await database.form_Data.get();
-      console.log("Form Data");
-      data.forEach((each) => console.log(each.data()));
-    }
-    fetchData();
-  }, []);
+  const disablePrevdate = () => {
+    return new Date().toLocaleDateString().split("/").reverse().join("-");
+  };
+  const [modal, setModal] = useState(false);
 
   return (
     <div className="body">
       <div className="bg"></div>
       <div className="bg bg2"></div>
       <div className="bg bg3"></div>
+      <Modal
+        show={modal}
+        link="formData"
+        message="Your details have been recorded."
+      />
       <header className="header">
         <h1 className="logo">
           <a href="/dashboard">BirthdayPlanner</a>
@@ -90,7 +90,8 @@ const Details = () => {
             <img
               src="https://image.flaticon.com/icons/png/512/2922/2922510.png"
               alt=""
-              className="profile"
+              className="profile cursor-pointer border-4 hover:border-black"
+              onClick={goToFormData}
             />
           </ul>
         </div>
@@ -121,7 +122,6 @@ const Details = () => {
                       id="name"
                       name="name"
                       type="text"
-                      autoComplete="email"
                       required
                       className="bg-gray-300 text-base relative block w-full px-2 py-1 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                       placeholder="Name"
@@ -174,8 +174,10 @@ const Details = () => {
                       Phone Number
                     </label>
                     <input
-                      type="text"
+                      type="number"
                       placeholder="Phone"
+                      id="phone_number"
+                      name="phone_number"
                       className="'w-full lg:w-52 rounded bg-gray-300"
                     />
                   </div>
@@ -198,6 +200,7 @@ const Details = () => {
                         type="date"
                         required
                         className="w-full rounded bg-gray-300"
+                        min={disablePrevdate()}
                       />
                     </div>
                     <div className="flex flex-col w-full">

@@ -45,6 +45,10 @@ const Dashboard = () => {
     history.push("/testimonials");
   };
 
+  const goToFormData = () => {
+    history.push("/formData");
+  };
+
   const logout = async () => {
     await auth.signOut();
     localStorage.removeItem("loggedIn");
@@ -71,7 +75,8 @@ const Dashboard = () => {
             <img
               src="https://image.flaticon.com/icons/png/512/2922/2922510.png"
               alt=""
-              className="profile"
+              className="profile cursor-pointer border-4 hover:border-black"
+              onClick={goToFormData}
             />
           </ul>
         </div>
